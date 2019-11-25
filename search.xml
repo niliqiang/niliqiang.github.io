@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++11 中的 Defaulted 和 Deleted 函数</title>
+    <url>/2019/11/25/C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://www.ibm.com/developerworks/cn/aix/library/1212_lufang_c11new/index.html" target="_blank" rel="noopener">C++11 标准新特性：Defaulted 和 Deleted 函数</a></p>
+</blockquote><h3 id="1、Defaulted函数"><a href="#1、Defaulted函数" class="headerlink" title="1、Defaulted函数"></a>1、Defaulted函数</h3><p>C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如：</p><a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">	<span class="keyword">int</span> a; </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line">X x;</span><br></pre></td></tr></table></figure>
+
+<p>但是，如果程序员为类 X 显式的自定义了非默认构造函数（带参数），却没有定义默认构造函数的时候，编译器将不再会为它隐式的生成默认构造函数。如果需要用到默认构造函数来创建类的对象时，程序员必须自己显式的定义默认构造函数。 如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	X()&#123;&#125;;  <span class="comment">// 手动定义默认构造函数</span></span><br><span class="line">	X(<span class="keyword">int</span> i)&#123; </span><br><span class="line">		a = i; </span><br><span class="line">	&#125;     </span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">	<span class="keyword">int</span> a; </span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    X x;	<span class="comment">// 正确，默认构造函数 X::X() 存在</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上例中的矛盾之处：</p>
+<ul>
+<li>原本期望编译器自动生成的默认构造函数需要程序员手动编写，程序员的工作量加大。</li>
+<li>手动编写的默认构造函数的代码执行效率比编译器自动生成的默认构造函数低。</li>
+</ul>
+<p>为了解决上述矛盾，C++ 11 中提出了 Defaulted 函数。程序员只需在函数声明后加上 “=default;”，就可将该函数声明为 defaulted 函数，<strong>编译器将为显式声明的 defaulted 函数自动生成函数体</strong>。如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	X()= <span class="keyword">default</span>; </span><br><span class="line">	X(<span class="keyword">int</span> i)&#123; </span><br><span class="line">		a = i; </span><br><span class="line">	&#125;     </span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">	<span class="keyword">int</span> a; </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    X x;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li><p>Defaulted 函数特性仅适用于类的特殊成员函数（四个），且该特殊成员函数没有默认参数。</p>
+</li>
+<li><p>Defaulted 函数既可以在类体里（inline）定义，也可以在类体外（out-of-line）定义。例如： </p>
+</li>
+<li><pre><code class="c++"><span class="class"><span class="keyword">class</span> <span class="title">X</span>{</span> 
+<span class="keyword">public</span>:  
+    X() = <span class="keyword">default</span>; <span class="comment">//Inline defaulted 默认构造函数</span>
+    X(<span class="keyword">const</span> X&amp;); 
+    X&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X&amp;); 
+    ~X() = <span class="keyword">default</span>;  <span class="comment">//Inline defaulted 析构函数</span>
+}; 
+
+X::X(<span class="keyword">const</span> X&amp;) = <span class="keyword">default</span>;    <span class="comment">//Out-of-line defaulted    拷贝构造函数</span>
+X&amp; X::<span class="keyword">operator</span> = (<span class="keyword">const</span> X&amp;) = <span class="keyword">default</span>;    <span class="comment">//Out-of-line defaulted    拷贝赋值运算符</span>
+&lt;!--￼<span class="number">3</span>--&gt;
+</code></pre>
+</li>
+</ul>
+<p>Deleted 函数特性还可用于禁用类的某些转换构造函数，从而避免不期望的类型转换。 如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	X(<span class="keyword">double</span>);              </span><br><span class="line">	X(<span class="keyword">int</span>) = <span class="keyword">delete</span>;     </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123; </span><br><span class="line">	<span class="function">X <span class="title">x1</span><span class="params">(<span class="number">1.2</span>)</span></span>;        </span><br><span class="line">	<span class="function">X <span class="title">x2</span><span class="params">(<span class="number">2</span>)</span></span>;	<span class="comment">// 错误，参数为整数 int 类型的转换构造函数被禁用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Deleted 函数特性还可以用来禁用某些用户自定义的类的 new 操作符，从而避免在自由存储区创建类的对象。如：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	<span class="function"><span class="keyword">void</span> *<span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span>)</span> </span>= <span class="keyword">delete</span>; </span><br><span class="line">	<span class="keyword">void</span> *<span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="keyword">size_t</span>) = <span class="keyword">delete</span>; </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123; </span><br><span class="line">	X *pa = <span class="keyword">new</span> X;		<span class="comment">// 错误，new 操作符被禁用</span></span><br><span class="line">	X *pb = <span class="keyword">new</span> X[<span class="number">10</span>];	<span class="comment">// 错误，new[] 操作符被禁用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>必须在函数第一次声明的时候将其声明为 deleted 函数，否则编译器会报错。即对于类的成员函数而言，deleted 函数必须在类体里（inline）定义，而不能在类体外（out-of-line）定义。 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++11</tag>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2019/11/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
@@ -22,15 +81,16 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>HexoTemp</tag>
       </tags>
   </entry>
   <entry>
-    <title>所有分类</title>
+    <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>所有标签</title>
+    <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
   </entry>
