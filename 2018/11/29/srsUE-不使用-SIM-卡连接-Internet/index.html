@@ -47,14 +47,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="niliqiang&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;tags&#x2F;HexoTemp&#x2F;index.html">
+  <meta name="description" content="1. 实验环境：Celluar SDR：srsLTESDR 平台：USRP B210PC 机操作系统：Ubuntu 14.042. 实验步骤注意：以下操作步骤建立在srsLTE成功搭建的基础之上Step 1:Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience scri">
+<meta name="keywords" content="srsLTE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="srsUE 不使用 SIM 卡连接 Internet">
+<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2018&#x2F;11&#x2F;29&#x2F;srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
+<meta property="og:description" content="1. 实验环境：Celluar SDR：srsLTESDR 平台：USRP B210PC 机操作系统：Ubuntu 14.042. 实验步骤注意：以下操作步骤建立在srsLTE成功搭建的基础之上Step 1:Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience scri">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-21T03:55:33.767Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://niliqiang.github.io/tags/HexoTemp/">
+<link rel="canonical" href="https://niliqiang.github.io/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/">
 
 
 <script id="page-configurations">
@@ -62,13 +66,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: HexoTemp | niliqiang's Blog</title>
+  <title>srsUE 不使用 SIM 卡连接 Internet | niliqiang's Blog</title>
   
 
 
@@ -201,50 +205,111 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">HexoTemp
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="niliqiang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niliqiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          srsUE 不使用 SIM 卡连接 Internet
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-29 21:00:38" itemprop="dateCreated datePublished" datetime="2018-11-29T21:00:38+08:00">2018-11-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/srsLTE/" itemprop="url" rel="index">
+                    <span itemprop="name">srsLTE</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+        <p><strong>1. 实验环境：</strong></p><p>Celluar SDR：srsLTE</p><p>SDR 平台：USRP B210</p><p>PC 机操作系统：Ubuntu 14.04</p><p><strong>2. 实验步骤</strong></p><p>注意：以下操作步骤建立在srsLTE成功搭建的基础之上</p><p>Step 1:</p><p>Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience script for this at “srsLTE/srsepc/srsepc_if_mask.sh”.</p><a id="more"></a>
+
+
+
+
+
+
+
+<p>如果你的 EPC 端物理网卡名称是“eth0”，在 EPC 端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo srsLTE/srsepc/srsepc_if_mask.sh eth0</span><br></pre></td></tr></table></figure>
+<p>Step 2:</p>
+<p>Make sure you’ve set your default gateway at the UE. You can check your default gateway by doing “route -n” and you can add a gw by doing “route add default gw {SGI-IP-ADDRESS} {TUN-SRSUE-INTERFACE}”.</p>
+<p>将 UE 端的默认网关设置为 EPC 端的 IP 地址。如果你的 EPC 端 IP 地址为 172.16.0.1，UE 端的虚拟网卡名称为 tun_srsue，在 UE 端执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo route add default gw 172.16.0.1 tun_srsue</span><br></pre></td></tr></table></figure>
+<p>Step 3:</p>
+<p>If you are having DNS issues, make sure your DNS server is set up correctly. There is a discussion on how to do this for ubuntu here: <a href="https://askubuntu.com/questions/130452/how-do-i-add-a-dns-server-via-resolv-conf" target="_blank" rel="noopener">https://askubuntu.com/questions/130452/how-do-i-add-a-dns-server-via-resolv-conf</a><br>On ubuntu 16.04, what worked for me was to disable the network manager, update “/etc/resolvconf/resolv.conf.d/head” and run “sudo resolvconf -u”; but there are a few different ways to do this.</p>
+<p><strong>参考资料：</strong></p>
+<p><a href="http://www.softwareradiosystems.com/pipermail/srslte-users/2018-March/001454.html" target="_blank" rel="noopener">[srslte-users] ue can not connect to the internet</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-24T16:12:57+08:00"
-              content="2019-11-24">
-          11-24
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/srsLTE/" rel="tag"># srsLTE</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/11/24/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/08/srsLTE-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E4%B9%8B-PLMN-%E6%90%9C%E7%B4%A2%E3%80%81%E5%B0%8F%E5%8C%BA%E6%90%9C%E7%B4%A2%E6%B5%81%E7%A8%8B/" rel="prev" title="srsLTE 源码学习之 PLMN 搜索、小区搜索流程">
+      <i class="fa fa-chevron-left"></i> srsLTE 源码学习之 PLMN 搜索、小区搜索流程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/" rel="next" title="Linux 中编译安装 PTPd v2">
+      Linux 中编译安装 PTPd v2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>

@@ -47,14 +47,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="niliqiang&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;tags&#x2F;HexoTemp&#x2F;index.html">
+  <meta name="description" content="Step 1：进入 ptpd 目录1cd ptpdStep 2：如果源文件是从 Github 仓库 clone 下来的1autoreconf -viStep 3：ptpd 的特性和依赖配置（默认配置）1.&#x2F;configureStep 4：12makesudo make install参考链接：PTP Daemon Version 2 Build and Installation Instructi">
+<meta name="keywords" content="Linux,PTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 中编译安装 PTPd v2">
+<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2019&#x2F;02&#x2F;27&#x2F;Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
+<meta property="og:description" content="Step 1：进入 ptpd 目录1cd ptpdStep 2：如果源文件是从 Github 仓库 clone 下来的1autoreconf -viStep 3：ptpd 的特性和依赖配置（默认配置）1.&#x2F;configureStep 4：12makesudo make install参考链接：PTP Daemon Version 2 Build and Installation Instructi">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-21T03:56:02.292Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://niliqiang.github.io/tags/HexoTemp/">
+<link rel="canonical" href="https://niliqiang.github.io/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/">
 
 
 <script id="page-configurations">
@@ -62,13 +66,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: HexoTemp | niliqiang's Blog</title>
+  <title>Linux 中编译安装 PTPd v2 | niliqiang's Blog</title>
   
 
 
@@ -201,50 +205,94 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">HexoTemp
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="niliqiang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niliqiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 中编译安装 PTPd v2
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-27 09:44:47" itemprop="dateCreated datePublished" datetime="2019-02-27T09:44:47+08:00">2019-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+        <p>Step 1：进入 ptpd 目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure><p>Step 2：如果源文件是从 Github 仓库 clone 下来的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoreconf -vi</span><br></pre></td></tr></table></figure><p>Step 3：ptpd 的特性和依赖配置（默认配置）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure><p>Step 4：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure><p><strong>参考链接：</strong></p><p><a href="https://raw.githubusercontent.com/ptpd/ptpd/master/INSTALL" target="_blank" rel="noopener">PTP Daemon Version 2 Build and Installation Instructions</a></p>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-24T16:12:57+08:00"
-              content="2019-11-24">
-          11-24
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/PTP/" rel="tag"># PTP</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/11/24/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/" rel="prev" title="srsUE 不使用 SIM 卡连接 Internet">
+      <i class="fa fa-chevron-left"></i> srsUE 不使用 SIM 卡连接 Internet
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/24/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
