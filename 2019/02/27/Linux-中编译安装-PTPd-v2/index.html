@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="Step 1：进入 ptpd 目录1cd ptpdStep 2：如果源文件是从 Github 仓库 clone 下来的1autoreconf -viStep 3：ptpd 的特性和依赖配置（默认配置）1.&#x2F;configureStep 4：12makesudo make install参考链接：PTP Daemon Version 2 Build and Installation Instructi">
+  <meta name="description" content="Step 1：进入 ptpd 目录 1cd ptpd Step 2：如果源文件是从 Github 仓库 clone 下来的 1autoreconf -vi Step 3：ptpd 的特性和依赖配置（默认配置） 1.&#x2F;configure">
 <meta name="keywords" content="Linux,PTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 中编译安装 PTPd v2">
 <meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2019&#x2F;02&#x2F;27&#x2F;Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
-<meta property="og:description" content="Step 1：进入 ptpd 目录1cd ptpdStep 2：如果源文件是从 Github 仓库 clone 下来的1autoreconf -viStep 3：ptpd 的特性和依赖配置（默认配置）1.&#x2F;configureStep 4：12makesudo make install参考链接：PTP Daemon Version 2 Build and Installation Instructi">
+<meta property="og:description" content="Step 1：进入 ptpd 目录 1cd ptpd Step 2：如果源文件是从 Github 仓库 clone 下来的 1autoreconf -vi Step 3：ptpd 的特性和依赖配置（默认配置） 1.&#x2F;configure">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T03:56:02.292Z">
+<meta property="og:updated_time" content="2020-03-21T12:45:18.209Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://niliqiang.github.io/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/">
@@ -258,7 +258,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Step 1：进入 ptpd 目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure><p>Step 2：如果源文件是从 Github 仓库 clone 下来的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoreconf -vi</span><br></pre></td></tr></table></figure><p>Step 3：ptpd 的特性和依赖配置（默认配置）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure><p>Step 4：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure><p><strong>参考链接：</strong></p><p><a href="https://raw.githubusercontent.com/ptpd/ptpd/master/INSTALL" target="_blank" rel="noopener">PTP Daemon Version 2 Build and Installation Instructions</a></p>
+        <p>Step 1：进入 ptpd 目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure>
+<p>Step 2：如果源文件是从 Github 仓库 clone 下来的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoreconf -vi</span><br></pre></td></tr></table></figure>
+<p>Step 3：ptpd 的特性和依赖配置（默认配置）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>Step 4：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p><strong>参考链接：</strong></p>
+<p><a href="https://raw.githubusercontent.com/ptpd/ptpd/master/INSTALL" target="_blank" rel="noopener">PTP Daemon Version 2 Build and Installation Instructions</a></p>
+
     </div>
 
     
@@ -281,8 +292,8 @@
       <i class="fa fa-chevron-left"></i> srsUE 不使用 SIM 卡连接 Internet
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/25/C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0/" rel="next" title="C++11 中的 Defaulted 和 Deleted 函数">
-      C++11 中的 Defaulted 和 Deleted 函数 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" rel="next" title="数据结构--树">
+      数据结构--树 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -334,20 +345,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="1. 实验环境：Celluar SDR：srsLTESDR 平台：USRP B210PC 机操作系统：Ubuntu 14.042. 实验步骤注意：以下操作步骤建立在srsLTE成功搭建的基础之上Step 1:Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience scri">
+  <meta name="description" content="1. 实验环境： Celluar SDR：srsLTE SDR 平台：USRP B210 PC 机操作系统：Ubuntu 14.04 2. 实验步骤 注意：以下操作步骤建立在srsLTE成功搭建的基础之上">
 <meta name="keywords" content="srsLTE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="srsUE 不使用 SIM 卡连接 Internet">
 <meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2018&#x2F;11&#x2F;29&#x2F;srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
-<meta property="og:description" content="1. 实验环境：Celluar SDR：srsLTESDR 平台：USRP B210PC 机操作系统：Ubuntu 14.042. 实验步骤注意：以下操作步骤建立在srsLTE成功搭建的基础之上Step 1:Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience scri">
+<meta property="og:description" content="1. 实验环境： Celluar SDR：srsLTE SDR 平台：USRP B210 PC 机操作系统：Ubuntu 14.04 2. 实验步骤 注意：以下操作步骤建立在srsLTE成功搭建的基础之上">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T03:55:33.767Z">
+<meta property="og:updated_time" content="2020-03-21T12:47:26.145Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://niliqiang.github.io/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/">
@@ -258,14 +258,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>1. 实验环境：</strong></p><p>Celluar SDR：srsLTE</p><p>SDR 平台：USRP B210</p><p>PC 机操作系统：Ubuntu 14.04</p><p><strong>2. 实验步骤</strong></p><p>注意：以下操作步骤建立在srsLTE成功搭建的基础之上</p><p>Step 1:</p><p>Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience script for this at “srsLTE/srsepc/srsepc_if_mask.sh”.</p><a id="more"></a>
-
-
-
-
-
-
-
+        <p><strong>1. 实验环境：</strong></p>
+<p>Celluar SDR：srsLTE</p>
+<p>SDR 平台：USRP B210</p>
+<p>PC 机操作系统：Ubuntu 14.04</p>
+<p><strong>2. 实验步骤</strong></p>
+<p>注意：以下操作步骤建立在srsLTE成功搭建的基础之上</p>
+<a id="more"></a>
+<p>Step 1:</p>
+<p>Make sure that you’ve masqueraded the outgoing interface at the EPC. There is a convenience script for this at “srsLTE/srsepc/srsepc_if_mask.sh”.</p>
 <p>如果你的 EPC 端物理网卡名称是“eth0”，在 EPC 端执行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo srsLTE/srsepc/srsepc_if_mask.sh eth0</span><br></pre></td></tr></table></figure>
 <p>Step 2:</p>
@@ -351,20 +352,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

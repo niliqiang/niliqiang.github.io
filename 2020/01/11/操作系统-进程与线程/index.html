@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://niliqiang.github.io').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="进程一般来说Linux系统中的进程具备下列进程四要素： （1）有一段程序供其执行，就好像一场戏有个剧本一样。不一定是进程所专有，可以与其他进程共用。 （2）有起码的”私有财产“，这就是进程专用的系统堆栈空间。 （3）有“户口”，这就是在内核中的一个task_struct数据结构，也称为“进程控制块（PCB）”，有了这个数据结构，进程才能成为内核调度的一个基本单位接受内核的调度。 （4）有独立的存储">
+<meta name="keywords" content="操作系统,进程与线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统--进程与线程">
+<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;index.html">
+<meta property="og:site_name" content="niliqiang&#39;s Blog">
+<meta property="og:description" content="进程一般来说Linux系统中的进程具备下列进程四要素： （1）有一段程序供其执行，就好像一场戏有个剧本一样。不一定是进程所专有，可以与其他进程共用。 （2）有起码的”私有财产“，这就是进程专用的系统堆栈空间。 （3）有“户口”，这就是在内核中的一个task_struct数据结构，也称为“进程控制块（PCB）”，有了这个数据结构，进程才能成为内核调度的一个基本单位接受内核的调度。 （4）有独立的存储">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575008831336.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575017458130.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575280520817.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575280572218.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575862300843.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575862438831.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575873446381.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575877715463.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575879557260.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575880161618.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575880577971.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575881434973.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575944646051.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575948620788.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575949378710.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575959702672.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575959877092.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575960667190.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576047030233.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576048518584.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576135516186.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576461932403.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576467044640.png">
+<meta property="og:updated_time" content="2020-03-21T15:35:28.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575008831336.png">
+
+<link rel="canonical" href="https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>操作系统--进程与线程 | niliqiang's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="niliqiang's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">niliqiang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Welcome</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/niliqiang" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="niliqiang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niliqiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          操作系统--进程与线程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-11 17:31:21" itemprop="dateCreated datePublished" datetime="2020-01-11T17:31:21+08:00">2020-01-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>一般来说<code>Linux</code>系统中的进程具备下列<strong>进程四要素</strong>：</p>
+<p>（1）有一段程序供其执行，就好像一场戏有个剧本一样。不一定是进程所专有，可以与其他进程共用。</p>
+<p>（2）有起码的”私有财产“，这就是进程专用的系统堆栈空间。</p>
+<p>（3）有“户口”，这就是在内核中的一个<code>task_struct</code>数据结构，也称为“进程控制块（PCB）”，有了这个数据结构，进程才能成为内核调度的一个基本单位接受内核的调度。</p>
+<p>（4）有独立的存储空间，意味着有专有的用户空间；也意味着除前述的系统空间堆栈外还有其专用的用户空间堆栈</p>
+<a id="more"></a>
+<p>如果只具备前面三条，那就称为“线程”。如果完全没有用户空间，就称为“内核线程”；如果共享用户空间就称为“用户线程”。“内核线程”和“用户线程”统称”线程“。</p>
+<h3 id="进程模型"><a href="#进程模型" class="headerlink" title="进程模型"></a>进程模型</h3><p>在图2-1a中，一台多道（CPU在进程间快速的切换）程序计算机的内存中有四道程序。图2-1b中，这四道程序被抽象为4个各自拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，并且每个程序都独立的运行。实际只有一个物理程序计数器，所以在每个程序运行时，它的逻辑程序计数器被装入实际的程序计数器中。当该程序执行结束（或暂定执行）时，物理程序计数器被保存在内存中该进程的逻辑程序计数器中。</p>
+<p><img src="1575008831336.png" alt="1575008831336"></p>
+<h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>4种主要事件会导致进程的创建：</p>
+<p>（1）系统初始化。</p>
+<p>（2）正在运行的程序执行了创建进程的系统调用。</p>
+<p>（3）用户请求创建一个新的进程。</p>
+<p>（4）一个批处理作业的初始化。</p>
+<p><strong>守护进程（daemon）</strong>：停留在后台，等待请求唤醒的进程。</p>
+<p><strong>前台进程</strong>：同用户交互的进程。</p>
+<p>在UNIX系统中，只有一个系统调用可以用来创建新进程：<code>fork</code>。这个系统调用会创建一个与调用进程相同的副本。在调用了fork后，父进程和子进程拥有相同的内存映像、同样的环境字符串和同样的打开文件。</p>
+<p>在Windows中，一个Win32函数调用CreateProcess，既处理进程的创建，也负责把正确的程序装入新的进程。</p>
+<p>在Unix和Windows中，进程创建之后，父进程和子进程有各自不同的地址空间。在Unix中，虽然子进程的初始地址是父进程的一个副本，但是这里涉及到两个不同的地址空间，<strong>不可写的内存区是共享的</strong>（写时复制共享）。在Windows中，从一开始父进程的地址空间和子进程的地址空间就是不同的。</p>
+<h3 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h3><p>进程终止通常由下列条件引起：</p>
+<ul>
+<li>正常退出（自愿的）。</li>
+<li>出错退出（自愿的）。</li>
+<li>严重错误（非自愿）。</li>
+<li>被其他进程杀死（非自愿）。</li>
+</ul>
+<h3 id="进程的层次结构"><a href="#进程的层次结构" class="headerlink" title="进程的层次结构"></a>进程的层次结构</h3><p>在Unix中，进程和它的所有子进程以及后裔共同组成一个进程组（树的概念），当用户从键盘发出一个信号时，该信号被送给当前与键盘相关的进程组中的所有成员（当前窗口创建的所有活动进程）。</p>
+<p>在Windows中，没有进程层级的概念，所有的进程都是地位相同的。</p>
+<h3 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h3><p>进程的三种状态：</p>
+<ul>
+<li>运行态（该时刻进程实际占用CPU）。</li>
+<li>就绪态（可运行，但因为其他进程正在运行而暂时停止）。</li>
+<li>阻塞态（除非某种外部事件发生，否则进程不能运行）。</li>
+</ul>
+<p><img src="1575017458130.png" alt="1575017458130"></p>
+<h3 id="进程的实现"><a href="#进程的实现" class="headerlink" title="进程的实现"></a>进程的实现</h3><p>为了实现进程模型，操作系统维护着一张表格（一个结构数组），即进程表。每个进程占用一个进程表项（进程控制块），该表项包含了进程状态的重要信息。</p>
+<p><img src="1575280520817.png" alt="1575280520817"></p>
+<p><img src="1575280572218.png" alt="1575280572218"></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="线程的使用"><a href="#线程的使用" class="headerlink" title="线程的使用"></a>线程的使用</h3><p><img src="1575862300843.png" alt="1575862300843"></p>
+<h3 id="经典的线程模型"><a href="#经典的线程模型" class="headerlink" title="经典的线程模型"></a>经典的线程模型</h3><p><img src="1575862438831.png" alt="1575862438831"></p>
+<h3 id="POSIX线程"><a href="#POSIX线程" class="headerlink" title="POSIX线程"></a>POSIX线程</h3><p><img src="1575873446381.png" alt="1575873446381"></p>
+<h3 id="在用户空间和在内核中实现线程"><a href="#在用户空间和在内核中实现线程" class="headerlink" title="在用户空间和在内核中实现线程"></a>在用户空间和在内核中实现线程</h3><p>参考链接：<a href="https://blog.csdn.net/gatieme/article/details/51892437" target="_blank" rel="noopener">线程的3种实现方式—内核级线程, 用户级线程和混合型线程</a></p>
+<h2 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h2><h3 id="竞争条件"><a href="#竞争条件" class="headerlink" title="竞争条件"></a>竞争条件</h3><p>两个或多个进程读写某些共享数据，最后的结果取决于进程运行的精准时序，称为竞争条件。</p>
+<h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><p>互斥：阻止多个进程同时读写共享的数据。</p>
+<p>临界区或临界区域：对共享内存进行访问的程序片段。</p>
+<p>避免竞争条件的解决方案，需要满足以下四个条件：</p>
+<p>（1）任何两个进程不能同时处于其临界区。<br>（2）不应该对CPU的速度和数量做任何假设。<br>（3）临界区外运行的进程不得阻塞其他进程。<br>（4）不得使进程无限期等待进入临界区。</p>
+<p><img src="1575877715463.png" alt="1575877715463"></p>
+<h3 id="忙等待的互斥"><a href="#忙等待的互斥" class="headerlink" title="忙等待的互斥"></a>忙等待的互斥</h3><h4 id="屏蔽中断"><a href="#屏蔽中断" class="headerlink" title="屏蔽中断"></a>屏蔽中断</h4><p>进程在刚刚进入临界区后立即屏蔽所有中断，就要离开之前再打开中断。</p>
+<p>弊端：把屏蔽中断的权力交给用户是不明智的；屏蔽中断只对当前CPU有效。、</p>
+<h4 id="锁变量"><a href="#锁变量" class="headerlink" title="锁变量"></a>锁变量</h4><p>一个进程想进入临界区时，首先测试这把锁（读锁值），若锁值为0，将锁值设置为1并进入临界区；若这把锁的值已经是1了，则进程将等待直到其值变为0。</p>
+<p>弊端：一个进程读锁值时为0，恰好在它将其值设置为1之前，另一个进程被调度执行，并将锁变量置为1，当第一个进程再次执行时，它也将该锁值置为1，此时两个进程进入临界区。</p>
+<h4 id="严格轮换法"><a href="#严格轮换法" class="headerlink" title="严格轮换法"></a>严格轮换法</h4><p>忙等待：连续测试一个变量知道某个值出现为止。</p>
+<p>自旋锁：用于忙等待的锁。</p>
+<p><img src="1575879557260.png" alt="1575879557260"></p>
+<p>弊端：违反了上述条件（3）。</p>
+<h4 id="Peterson解法"><a href="#Peterson解法" class="headerlink" title="Peterson解法"></a>Peterson解法</h4><p><img src="1575880161618.png" alt="1575880161618"></p>
+<p>弊端：需要忙等待。</p>
+<h4 id="TSL指令"><a href="#TSL指令" class="headerlink" title="TSL指令"></a>TSL指令</h4><p>需要硬件支持，执行TSL的CPU将锁住内存总线，以禁止其他CPU在本指令结束之前访问内存。</p>
+<p>弊端：需要忙等待。</p>
+<p><img src="1575880577971.png" alt="1575880577971"></p>
+<h3 id="睡眠与唤醒"><a href="#睡眠与唤醒" class="headerlink" title="睡眠与唤醒"></a>睡眠与唤醒</h3><p>优先级反转问题：一台计算机有两个进程，H优先级较高，L优先级较低。调度规则规定，只要H处于就绪态它就可以运行。在某一时刻。L处于临界区中，此时H变道就绪态，准备运行。现在H开始忙等待，但由于当H就绪时L不会被调度，也就无法离开临界区，所以H将永远忙等待下去。</p>
+<p>生产者-消费者问题（有界缓冲区问题）</p>
+<p><img src="1575881434973.png" alt="1575881434973"></p>
+<p>由于未对count的访问加以限制，所以可能会出现竞争条件。当缓冲区为空，消费者刚刚读取count的值发现为0.此时调度程序决定暂停消费者并启动生产者。生产者想缓冲区加入一个数据项，count加一。现在count的值变为1了。它推断刚才由于count为0，所以消费者此时一定在睡眠，于是生产者调用wakeup来唤醒消费者。但是，消费者此时在逻辑上并未睡眠，所以wakeup信号丢失。当消费者下次运行时，它将测试先前读到的count值，发现它为0，于是睡眠。当生产者填满整个缓冲区后，也会睡眠。这样两个进程都会永远睡眠下去。</p>
+<h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><p>down操作：检查信号量是否大于0，若该值大于0，则将其减1并继续；若该值为0，则进程将睡眠，而且此时down操作并未结束。</p>
+<p>up操作：信号量的值增1和唤醒一个进程。</p>
+<p>down操作和up操作均作为一个单一的，不可分割的原子操作完成。</p>
+<p><img src="1575944646051.png" alt="1575944646051"></p>
+<h3 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h3><p>当一个线程或进程需要访问临界区时，它调用mutex_lock。如果该互斥量当前是解锁的（临界区可用），则调用成功，调用线程可以自由进入临界区。若该互斥量已经加锁，调用线程被阻塞，直到临界区中的线程完成并调用mutex_unlock。如果多个线程被阻塞在该互斥量上，将随机选择一个线程并允许它获得锁。</p>
+<p><img src="1575948620788.png" alt="1575948620788"></p>
+<p>只有一个缓冲区的生产者-消费者模型：</p>
+<p><img src="1575949378710.png" alt="1575949378710"></p>
+<h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>管程是一个编程语言概念，一个管程是一个由过程、变量及数据结构等组成的一个集合，它们组成一个特殊的模块或者软件包。</p>
+<p>管程一个很重要的特性：任一时刻管程中只能有一个活跃的进程，这一特性使管程能有效的完成互斥（引入条件变量以及wait和signal两个操作）。</p>
+<h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p><img src="1575959702672.png" alt="1575959702672"></p>
+<h3 id="屏障"><a href="#屏障" class="headerlink" title="屏障"></a>屏障</h3><p><img src="1575959877092.png" alt="1575959877092"></p>
+<h3 id="避免锁：读-复制-更新"><a href="#避免锁：读-复制-更新" class="headerlink" title="避免锁：读-复制-更新"></a>避免锁：读-复制-更新</h3><p><img src="1575960667190.png" alt="1575960667190"></p>
+<h2 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>1. 进程行为</strong></p>
+<p><img src="1576047030233.png" alt="1576047030233"></p>
+<ul>
+<li>计算密集型：较长时间的CPU集中使用和较小频度的I/O等待</li>
+<li>I/O密集型：较短时间的CPU集中使用和较高频度的I/O等待</li>
+</ul>
+<p><strong>2. 何时调度</strong></p>
+<ul>
+<li>非抢占式调度算法：挑选一个进程，然后让该进程运行直至被阻塞（阻塞在I/O上或者等待另一个进程），或者直到该进程自动释放CPU。</li>
+<li>抢占式调度算法：挑选一个进程，并且让该进程运行某个固定时段的最大值。如果在该时段结束时，该进程仍在运行，它就被挂起，而调度程序挑选另一个进程运行（如果存在一个就绪进程）。</li>
+</ul>
+<p>抢占式调度算法需要在时间间隔末端发生时钟中断，如果没有可用的时钟，那么非抢占式调度算法就是唯一的选择。</p>
+<p><strong>3. 调度算法分类</strong></p>
+<p>不同的环境需要不同的调度算法。三种环境划分：</p>
+<ul>
+<li>批处理：非抢占式调度算法</li>
+<li>交互式：抢占式</li>
+<li>实时</li>
+</ul>
+<p><strong>4. 调度算法的目标</strong></p>
+<p><img src="1576048518584.png" alt="1576048518584"></p>
+<h3 id="批处理系统中的调度"><a href="#批处理系统中的调度" class="headerlink" title="批处理系统中的调度"></a>批处理系统中的调度</h3><p>（1）先来先服务<br>易于理解并且便于在程序中运用。<br>（2）最短作业优先<br>适用于运行时间可以预知的非抢占式批处理调度算法。<br>（3）最短剩余时间优先<br>最短作业优点的抢占式版本。</p>
+<h3 id="交互式系统中的调度"><a href="#交互式系统中的调度" class="headerlink" title="交互式系统中的调度"></a>交互式系统中的调度</h3><p>（1）轮转调度</p>
+<p><img src="1576135516186.png" alt="1576135516186"></p>
+<p>进程切换（上下文切换）：需要1ms，包括切换内存映像、清除和重新调入高速缓存等。</p>
+<p>时间片设置得太长（长于平均的CPU突发时间）可能引起对短的交互请求的响应时间变长，设置得太短又会导致过多的进程切换，降低CPU效率。将时间片设为20~50ms通常是一个比较合理的折中。</p>
+<p>（2）优先级调度</p>
+<p>为了防止高优先级进程无休止地运行下去，调度进程可能在每个时钟滴答（每个时钟中断）降低当前进程的优先级。另一个可能的做法是，给每个进程赋予一个允许运行的最大时间片，当用完这个时间片时，次高优先级的进程便会获得运行机会。</p>
+<p><img src="1576461932403.png" alt="1576461932403">、</p>
+<p>（3）多级队列</p>
+<p>最高优先级类的进程运行一个时间片，次高优先级进程运行两个时间片，再次一级运行4个时间片，以此类推。当一个进程用完分配的时间片后，会被移到下一优先级类，即随着进程优先级不断降低，它的运行频度逐渐放慢。</p>
+<p>（4）最短进程优先</p>
+<p>根据进程过去的行为进行推测，并执行估计运行时间最短的那一个。</p>
+<p>（5）保证调度</p>
+<p>向用户作出明确的性能保证。例如：若有用户同时有n个用户登录，则用户将获得CPU处理能力的1/n。</p>
+<p>为了实现这个目标，系统需要跟踪各个进程自创建以来已使用了多少CPU时间，然后计算各个进程应获得的CPU时间。</p>
+<p>（6）彩票调度</p>
+<p>为进程提供各种系统资源（如CPU时间）的彩票，当需要作出调度决策时，就随机抽出一张彩票，拥有该彩票的进程获得资源。如果给三个进程分别分配10、25、50张彩票，那么它们会自动地按照大致2：4：5的比例划分CPU的使用。</p>
+<p>（7）公平分享调度</p>
+<p>以用户为基本单位分配CPU，不论这些用户本身有几个进程。</p>
+<h3 id="实时系统中的调度"><a href="#实时系统中的调度" class="headerlink" title="实时系统中的调度"></a>实时系统中的调度</h3><p>实时系统通常可以分为硬实时和软实时，前者的含义是必须满足绝对的截止时间，后者的含义是虽然不需要偶尔错失截止时间，但是可以容忍。</p>
+<p>实时系统中的事件可以按照响应方式进一步分类为周期性事件或非周期性事件。一个周期事件可以被调度的条件是处理该事件的CPU时间小于该事件的周期。</p>
+<h3 id="策略和机制"><a href="#策略和机制" class="headerlink" title="策略和机制"></a>策略和机制</h3><p>将调度机制与调度策略分离，使得调度算法可以从用户进程接收有关的调度决策信息（调度算法参数化）。</p>
+<h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><p><img src="1576467044640.png" alt="1576467044640"></p>
+<p>用户级线程和内核级线程之间的差别在于性能，用户级线程的线程切换需要少量的机器指令，而内核级线程需要完整的上下文切换，修改内存映像，使高速缓存失效，这导致了若干数量级的延迟。另一方面，使用内核级线程时，一旦线程阻塞在I/O上就不需要像在用户级线程中那样将整个进程挂起。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+              <a href="/tags/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" rel="tag"># 进程与线程</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/" rel="prev" title="数据结构--图">
+      <i class="fa fa-chevron-left"></i> 数据结构--图
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程模型"><span class="nav-number">1.1.</span> <span class="nav-text">进程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的创建"><span class="nav-number">1.2.</span> <span class="nav-text">进程的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的终止"><span class="nav-number">1.3.</span> <span class="nav-text">进程的终止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的层次结构"><span class="nav-number">1.4.</span> <span class="nav-text">进程的层次结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的状态"><span class="nav-number">1.5.</span> <span class="nav-text">进程的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的实现"><span class="nav-number">1.6.</span> <span class="nav-text">进程的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的使用"><span class="nav-number">2.1.</span> <span class="nav-text">线程的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#经典的线程模型"><span class="nav-number">2.2.</span> <span class="nav-text">经典的线程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POSIX线程"><span class="nav-number">2.3.</span> <span class="nav-text">POSIX线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在用户空间和在内核中实现线程"><span class="nav-number">2.4.</span> <span class="nav-text">在用户空间和在内核中实现线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程间通信"><span class="nav-number">3.</span> <span class="nav-text">进程间通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#竞争条件"><span class="nav-number">3.1.</span> <span class="nav-text">竞争条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#临界区"><span class="nav-number">3.2.</span> <span class="nav-text">临界区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忙等待的互斥"><span class="nav-number">3.3.</span> <span class="nav-text">忙等待的互斥</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#屏蔽中断"><span class="nav-number">3.3.1.</span> <span class="nav-text">屏蔽中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#锁变量"><span class="nav-number">3.3.2.</span> <span class="nav-text">锁变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#严格轮换法"><span class="nav-number">3.3.3.</span> <span class="nav-text">严格轮换法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Peterson解法"><span class="nav-number">3.3.4.</span> <span class="nav-text">Peterson解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TSL指令"><span class="nav-number">3.3.5.</span> <span class="nav-text">TSL指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#睡眠与唤醒"><span class="nav-number">3.4.</span> <span class="nav-text">睡眠与唤醒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号量"><span class="nav-number">3.5.</span> <span class="nav-text">信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互斥量"><span class="nav-number">3.6.</span> <span class="nav-text">互斥量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管程"><span class="nav-number">3.7.</span> <span class="nav-text">管程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消息传递"><span class="nav-number">3.8.</span> <span class="nav-text">消息传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#屏障"><span class="nav-number">3.9.</span> <span class="nav-text">屏障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#避免锁：读-复制-更新"><span class="nav-number">3.10.</span> <span class="nav-text">避免锁：读-复制-更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度"><span class="nav-number">4.</span> <span class="nav-text">调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">4.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#批处理系统中的调度"><span class="nav-number">4.2.</span> <span class="nav-text">批处理系统中的调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交互式系统中的调度"><span class="nav-number">4.3.</span> <span class="nav-text">交互式系统中的调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实时系统中的调度"><span class="nav-number">4.4.</span> <span class="nav-text">实时系统中的调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略和机制"><span class="nav-number">4.5.</span> <span class="nav-text">策略和机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程调度"><span class="nav-number">4.6.</span> <span class="nav-text">线程调度</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">niliqiang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/niliqiang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;niliqiang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/mailto:ni_liqiang@126.com" title="E-Mail → mailto:ni_liqiang@126.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">niliqiang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="C++11 标准新特性：Defaulted 和 Deleted 函数 1、Defaulted函数C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如：">
+  <meta name="description" content="C++11 标准新特性：Defaulted 和 Deleted 函数  1、Defaulted函数C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。 如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++11 中的 Defaulted 和 Deleted 函数">
 <meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2019&#x2F;11&#x2F;25&#x2F;C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
-<meta property="og:description" content="C++11 标准新特性：Defaulted 和 Deleted 函数 1、Defaulted函数C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如：">
+<meta property="og:description" content="C++11 标准新特性：Defaulted 和 Deleted 函数  1、Defaulted函数C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。 如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-21T10:18:32.360Z">
+<meta property="og:updated_time" content="2020-03-21T12:45:32.751Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://niliqiang.github.io/2019/11/25/C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0/">
@@ -260,8 +260,10 @@
       
         <blockquote>
 <p><a href="https://www.ibm.com/developerworks/cn/aix/library/1212_lufang_c11new/index.html" target="_blank" rel="noopener">C++11 标准新特性：Defaulted 和 Deleted 函数</a></p>
-</blockquote><h3 id="1、Defaulted函数"><a href="#1、Defaulted函数" class="headerlink" title="1、Defaulted函数"></a>1、Defaulted函数</h3><p>C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如：</p><a id="more"></a>
-
+</blockquote>
+<h3 id="1、Defaulted函数"><a href="#1、Defaulted函数" class="headerlink" title="1、Defaulted函数"></a>1、Defaulted函数</h3><p>C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。</p>
+<p>如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如：</p>
+<a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">	<span class="keyword">int</span> a; </span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line">X x;</span><br></pre></td></tr></table></figure>
 <p>但是，如果程序员为类 X 显式的自定义了非默认构造函数（带参数），却没有定义默认构造函数的时候，编译器将不再会为它隐式的生成默认构造函数。如果需要用到默认构造函数来创建类的对象时，程序员必须自己显式的定义默认构造函数。 如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span>&#123;</span> </span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	X()&#123;&#125;;  <span class="comment">// 手动定义默认构造函数</span></span><br><span class="line">	X(<span class="keyword">int</span> i)&#123; </span><br><span class="line">		a = i; </span><br><span class="line">	&#125;     </span><br><span class="line"><span class="keyword">private</span>: </span><br><span class="line">	<span class="keyword">int</span> a; </span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    X x;	<span class="comment">// 正确，默认构造函数 X::X() 存在</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -313,10 +315,13 @@ X&amp; operator = (const X&amp;);
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/" rel="prev" title="Linux 中编译安装 PTPd v2">
-      <i class="fa fa-chevron-left"></i> Linux 中编译安装 PTPd v2
+    <a href="/2019/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" rel="prev" title="数据结构--树">
+      <i class="fa fa-chevron-left"></i> 数据结构--树
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="next" title="数据结构--二叉树">
+      数据结构--二叉树 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -368,20 +373,20 @@ X&amp; operator = (const X&amp;);
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
