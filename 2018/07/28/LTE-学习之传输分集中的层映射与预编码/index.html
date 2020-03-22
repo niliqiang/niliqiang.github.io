@@ -265,14 +265,14 @@
 <p><strong>在这里我们假设调制方式为 QPSK，天线端口数为两个。</strong></p>
 <h3 id="层映射（-Layer-mapping-）"><a href="#层映射（-Layer-mapping-）" class="headerlink" title="层映射（ Layer mapping ）"></a>层映射（ Layer mapping ）</h3><p>因为每个码字长度为 32 比特，所以调制之后会有 16 个 symbols，由于层映射的层数等于天线的端口数，所以层映射的过程就是将 16 个 symbols 分到两层，分层的方法如下图所示：</p>
 <a id="more"></a>
-<p><img src="20180728111800623.png" alt="img"></p>
+<p><img src="/2018/07/28/LTE-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BC%A0%E8%BE%93%E5%88%86%E9%9B%86%E4%B8%AD%E7%9A%84%E5%B1%82%E6%98%A0%E5%B0%84%E4%B8%8E%E9%A2%84%E7%BC%96%E7%A0%81/20180728111800623.png" alt="img"></p>
 <p>其中，$M_{symb}^{layer}$是每层的 symbols 数目，即 $M_{symb}^{layer}$ = 8，$M_{symb}^{(0))}$为第“0”个码字调制后的 symbols 数，即 $M_{symb}^{(0))}$ = 16。</p>
 <h3 id="预编码（-Precoding-）"><a href="#预编码（-Precoding-）" class="headerlink" title="预编码（ Precoding ）"></a>预编码（ Precoding ）</h3><p>调制后的数据层映射之后要进行预编码，预编码将数据映射到天线端口。</p>
 <p>预编码输出：</p>
 <script type="math/tex; mode=display">
 y(i)=[y^{(0)}(i), y^{(1)}(i)]^T, i=0,1,...,M^{ap}_{symb} - 1</script><p>其中，$M^{ap}_{symb}$为每一个天线端口的 symbols 数，即 $M^{ap}_{symb} = 2*M_{symb}^{layer} = 16$。</p>
 <p>预编码公式为：</p>
-<p><img src="20180728114808801.png" alt="img"></p>
+<p><img src="/2018/07/28/LTE-%E5%AD%A6%E4%B9%A0%E4%B9%8B%E4%BC%A0%E8%BE%93%E5%88%86%E9%9B%86%E4%B8%AD%E7%9A%84%E5%B1%82%E6%98%A0%E5%B0%84%E4%B8%8E%E9%A2%84%E7%BC%96%E7%A0%81/20180728114808801.png" alt="img"></p>
 <p>其中，$i=0,1,…,M^{ap}_{symb} - 1$</p>
 <h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>虽然层映射之后，每一层只有一半的 symbols（以 2 个天线端口为例）， 但是预编码之后每个天线端口传输的数据包含所有的 symbols，只是数据的传输形式不同（推导一下预编码的输出结果就能看出来了），也就是说传输分集是多个天线端口发送相同的数据（但是数据形式不同）。</p>
 <p><strong>参考材料：</strong></p>
@@ -352,7 +352,7 @@ y(i)=[y^{(0)}(i), y^{(1)}(i)]^T, i=0,1,...,M^{ap}_{symb} - 1</script><p>其中�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -365,7 +365,7 @@ y(i)=[y^{(0)}(i), y^{(1)}(i)]^T, i=0,1,...,M^{ap}_{symb} - 1</script><p>其中�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -311,26 +311,26 @@
 <li>如果 2i&gt;n，则结点 i 无左孩子（结点 i 为叶子结点）；否则其左孩子是结点 2i。</li>
 <li>如果 2i+1&gt;n，则结点 i 无右孩子；否则其右孩子是结点 2i+1。</li>
 </ul>
-<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3><h4 id="二叉树的顺序存储结构"><a href="#二叉树的顺序存储结构" class="headerlink" title="二叉树的顺序存储结构"></a>二叉树的顺序存储结构</h4><p><img src="1577178946436.png" alt="二叉树的顺序存储结构"></p>
+<h3 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h3><h4 id="二叉树的顺序存储结构"><a href="#二叉树的顺序存储结构" class="headerlink" title="二叉树的顺序存储结构"></a>二叉树的顺序存储结构</h4><p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577178946436.png" alt="二叉树的顺序存储结构"></p>
 <p>顺序存储结构一般只用于完全二叉树。</p>
 <h4 id="二叉链表"><a href="#二叉链表" class="headerlink" title="二叉链表"></a>二叉链表</h4><p>二叉链表：一个数据域和两个指针域</p>
 <p>| lchild | data | rchild |</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 二叉树的二叉链表结点结构定义 */</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> &#123;</span>		<span class="comment">// 结点结构</span></span><br><span class="line">	T data;</span><br><span class="line">	BiTNode&lt;T&gt; *lchild, *rchild;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//无参构造函数</span></span><br><span class="line">	BiTNode() :lchild(<span class="literal">NULL</span>), rchild(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//带默认值的有参构造函数</span></span><br><span class="line">	BiTNode(T mData, BiTNode&lt;T&gt; *l = <span class="literal">NULL</span>, BiTNode&lt;T&gt; *r = <span class="literal">NULL</span>) :data(mData), lchild(l), rchild(r) &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>结构示意图如图所示：</p>
-<p><img src="1577180067572.png" alt="二叉链表"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577180067572.png" alt="二叉链表"></p>
 <h3 id="遍历二叉树"><a href="#遍历二叉树" class="headerlink" title="遍历二叉树"></a>遍历二叉树</h3><p>二叉树的遍历（traversing binary tree）是指从根结点出发，<strong>按照某种次序依次访问</strong>二叉树中所有结点，使得每个结点被访问一次且仅被访问一次。</p>
 <p><strong>1. 前序遍历</strong></p>
 <p>若二叉树为空，则空操作返回，否则先访问根结点，然后前序遍历左子树，再前序遍历右子树。</p>
-<p><img src="1577180397220.png" alt="前序"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577180397220.png" alt="前序"></p>
 <p><strong>2. 中序遍历</strong></p>
 <p>若树为空，则空操作返回，否则从根结点开始（注意并不是先访问根结点），中序遍历根结点的左子树，然后是访问根结点，最后中序遍历右子树。</p>
-<p><img src="1577180782951.png" alt="中序"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577180782951.png" alt="中序"></p>
 <p><strong>3. 后序遍历</strong></p>
 <p>若树为空，则空操作返回，否则从左到右先叶子后结点的方式遍历访问左右子树，最后是访问根结点。</p>
-<p><img src="1577180889635.png" alt="后序"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577180889635.png" alt="后序"></p>
 <p><strong>4. 层序遍历</strong></p>
 <p>若树为空，则空操作返回，否则从树的第一层，也就是根结点开始访问，从上而下逐层遍历，在同一层中，按从左到右的顺序对结点逐个访问。</p>
-<p><img src="1577180957043.png" alt="层序"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577180957043.png" alt="层序"></p>
 <h4 id="前序遍历算法"><a href="#前序遍历算法" class="headerlink" title="前序遍历算法"></a>前序遍历算法</h4><ol>
 <li>采用前序遍历的递归算法：</li>
 </ol>
@@ -359,13 +359,13 @@
 <li>去线。对树中每个结点，只保留它与第一个孩子结点的连线，删除它与其他孩子结点之间的连线。（叶子节点没有孩子结点，不用去线）</li>
 <li>层次调整。以树的根结点为轴心，将整棵树顺时针旋转一定的角度，使之结构层次分明。注意第一个孩子是二叉树结点的左孩子，兄弟转换过来的孩子是结点的右孩子。</li>
 </ol>
-<p><img src="1577928904792.png" alt="树转换成二叉树"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577928904792.png" alt="树转换成二叉树"></p>
 <h4 id="森林转换成二叉树"><a href="#森林转换成二叉树" class="headerlink" title="森林转换成二叉树"></a>森林转换成二叉树</h4><p>森林是由若干棵树组成的，所以完全可以理解为，森林中的每一棵树都是兄弟，可以按照兄弟的处理办法来操作。</p>
 <ol>
 <li>把每一棵树转换成二叉树</li>
 <li>第一棵二叉树不动，从第二棵二叉树开始，依次把后一棵二叉树的根结点作为前一棵二叉树的根结点的右孩子，用线连接起来。当所有的二叉树连接起来后就得到了由森林转换来的二叉树。</li>
 </ol>
-<p><img src="1577929041820.png" alt="森林转换成二叉树"></p>
+<p><img src="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/1577929041820.png" alt="森林转换成二叉树"></p>
 <h4 id="树与森林的遍历"><a href="#树与森林的遍历" class="headerlink" title="树与森林的遍历"></a>树与森林的遍历</h4><p>树的遍历分为两种方式：</p>
 <ol>
 <li>先根遍历树：先访问树的根节点，然后依次先根遍历每棵子树（前序遍历）</li>
@@ -462,7 +462,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -475,7 +475,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
