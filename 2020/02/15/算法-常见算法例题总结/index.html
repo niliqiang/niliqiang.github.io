@@ -46,28 +46,32 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="niliqiang&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;index.html">
+  <meta name="description" content="算法相关的Leetcode题解见：CS-Notes&#x2F;notes&#x2F;Leetcode 题解 - 目录.md 1. 贪心思想在对问题求解时，总是做出在当前看来是最好的选择。贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。参考例题：452. 用最少数量的箭引爆气球 2. 二分查找二分查找也称折半查找（">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法--常见算法例题总结">
+<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;02&#x2F;15&#x2F;%E7%AE%97%E6%B3%95-%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E4%BE%8B%E9%A2%98%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
+<meta property="og:description" content="算法相关的Leetcode题解见：CS-Notes&#x2F;notes&#x2F;Leetcode 题解 - 目录.md 1. 贪心思想在对问题求解时，总是做出在当前看来是最好的选择。贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。参考例题：452. 用最少数量的箭引爆气球 2. 二分查找二分查找也称折半查找（">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-23T14:36:15.930Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://niliqiang.github.io/">
+<link rel="canonical" href="https://niliqiang.github.io/2020/02/15/%E7%AE%97%E6%B3%95-%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E4%BE%8B%E9%A2%98%E6%80%BB%E7%BB%93/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>niliqiang's Blog</title>
+  <title>算法--常见算法例题总结 | niliqiang's Blog</title>
   
 
 
@@ -202,90 +206,10 @@
             
 
   <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/03/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">数据结构--链表总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-22 17:34:57" itemprop="dateCreated datePublished" datetime="2020-03-22T17:34:57+08:00">2020-03-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
       
-          <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="链表的定义及优缺点："><a href="#链表的定义及优缺点：" class="headerlink" title="链表的定义及优缺点："></a>链表的定义及优缺点：</h3><blockquote>
-<p>来自维基百科</p>
-</blockquote>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>链表（Linked list）是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间。</p>
-<p>链表作为一种基础的数据结构可以用来生成其它类型的数据结构。链表通常由一连串节点组成，每个节点包含任意的实例数据（data fields）和一或两个用来指向上一个或下一个节点的位置的链接（”links”）。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
   
   
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/02/15/%E7%AE%97%E6%B3%95-%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E4%BE%8B%E9%A2%98%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,8 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/15/%E7%AE%97%E6%B3%95-%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E4%BE%8B%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">算法--常见算法例题总结</a>
+          算法--常见算法例题总结
         </h1>
 
         <div class="post-meta">
@@ -335,7 +258,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>算法相关的Leetcode题解</strong>见：<br><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md" target="_blank" rel="noopener">CS-Notes/notes/Leetcode 题解 - 目录.md</a></p>
+        <p><strong>算法相关的Leetcode题解</strong>见：<br><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3%20-%20%E7%9B%AE%E5%BD%95.md" target="_blank" rel="noopener">CS-Notes/notes/Leetcode 题解 - 目录.md</a></p>
 <h2 id="1-贪心思想"><a href="#1-贪心思想" class="headerlink" title="1. 贪心思想"></a>1. 贪心思想</h2><p>在对问题求解时，总是做出在当前看来是最好的选择。<br>贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。<br><strong>参考例题：</strong><a href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/" target="_blank" rel="noopener">452. 用最少数量的箭引爆气球</a></p>
 <h2 id="2-二分查找"><a href="#2-二分查找" class="headerlink" title="2. 二分查找"></a>2. 二分查找</h2><p>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法，前提是数据结构必须先排好序，可以在数据规模的对数时间复杂度内（O(logn)）完成查找。但是，二分查找要求线性表具有有随机访问的特点（例如数组），也要求线性表能够根据中间元素的特点推测它两侧元素的性质，以达到缩减问题规模的效果。<br><strong>参考例题：</strong><a href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="noopener">153. 寻找旋转排序数组中的最小值</a></p>
 <h2 id="3-分治算法"><a href="#3-分治算法" class="headerlink" title="3. 分治算法"></a>3. 分治算法</h2><p>字面上的解释是「分而治之」，就是把一个复杂的问题分成两个或更多的相同或相似的子问题，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。<br>分治算法通常以数学归纳法来验证。而它的计算成本则多数以解递归关系式来判定。<br><strong>参考例题：</strong><a href="https://leetcode-cn.com/problems/different-ways-to-add-parentheses/" target="_blank" rel="noopener">241. 为运算表达式加括号</a></p>
@@ -389,670 +312,39 @@
 <h4 id="6-7-2-乘积数组"><a href="#6-7-2-乘积数组" class="headerlink" title="6.7.2 乘积数组"></a>6.7.2 乘积数组</h4><p><strong>参考例题：</strong><a href="https://leetcode-cn.com/problems/product-of-array-except-self/" target="_blank" rel="noopener">238. 除自身以外数组的乘积(乘积数组)</a></p>
 <h4 id="6-7-3-二项式定理-快速幂"><a href="#6-7-3-二项式定理-快速幂" class="headerlink" title="6.7.3 二项式定理+快速幂"></a>6.7.3 二项式定理+快速幂</h4><p>阿里2.23笔试题第一道：N个人，任意选k个，再从k个里任选1个当队长，求总组合数。<br><strong>思路：</strong><br>总数S = 0*C(N,0) + 1*C(N,1) + … + i*C(N,i) + N*C(N,N)<br>倒着加，由二项式定理：S + S = N*(C(N,0) + … + C(N,N)) = N*2^(N)<br>所以 S = N*2^(N-1)<br>接下来只需要考虑计算2^(N-1)的快速计算方法就好了（简单2分递归即可）<br>时间复杂度O(logN)。<br><strong>代码实现：</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归快速求幂</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MyPow</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;  <span class="comment">//m^n</span></span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> m;</span><br><span class="line">    <span class="keyword">int</span> temp = MyPow(m, n / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">long</span> <span class="keyword">long</span>)(n%<span class="number">2</span>==<span class="number">0</span> ? <span class="number">1</span> : m) * temp * temp % <span class="number">1000000007</span>;  <span class="comment">//n为奇数时，需要额外乘m</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        res = (<span class="keyword">long</span> <span class="keyword">long</span>)n * MyPow(<span class="number">2</span>, n - <span class="number">1</span>) % <span class="number">1000000007</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// n比较小时可以这么算，n比较大时，递归过深会导致栈溢出，此时应使用二项式公式+快速幂的方式</span></span><br><span class="line"><span class="comment">// 由n个人里选k个人的组合数 = 由n-1个人里选k个人的组合数 + 由n-1个人里选k-1个人的组合数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Comm</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (k &gt; n)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == k || k == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> Comm(n - <span class="number">1</span>, k) + Comm(n - <span class="number">1</span>, k - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            res += i * (Comm(n, i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">操作系统--进程与线程</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-11 17:31:21" itemprop="dateCreated datePublished" datetime="2020-01-11T17:31:21+08:00">2020-01-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>一般来说<code>Linux</code>系统中的进程具备下列<strong>进程四要素</strong>：</p>
-<p>（1）有一段程序供其执行，就好像一场戏有个剧本一样。不一定是进程所专有，可以与其他进程共用。</p>
-<p>（2）有起码的”私有财产“，这就是进程专用的系统堆栈空间。</p>
-<p>（3）有“户口”，这就是在内核中的一个<code>task_struct</code>数据结构，也称为“进程控制块（PCB）”，有了这个数据结构，进程才能成为内核调度的一个基本单位接受内核的调度。</p>
-<p>（4）有独立的存储空间，意味着有专有的用户空间；也意味着除前述的系统空间堆栈外还有其专用的用户空间堆栈</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" rel="prev" title="操作系统--进程与线程">
+      <i class="fa fa-chevron-left"></i> 操作系统--进程与线程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93/" rel="next" title="数据结构--链表总结">
+      数据结构--链表总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/" class="post-title-link" itemprop="url">数据结构--图</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-10 17:47:42" itemprop="dateCreated datePublished" datetime="2020-01-10T17:47:42+08:00">2020-01-10</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="图的定义"><a href="#图的定义" class="headerlink" title="图的定义"></a>图的定义</h3><p>图（Graph）是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为：G(V,E)，其中，G 表示一个图，V 是图 G 中顶点的集合，E 是图 G 中边的集合。</p>
-<p>注意：</p>
-<ul>
-<li>线性表中我们把数据元素叫元素，树中将数据元素叫结点，在<strong>图中数据元素，我们则称之为顶点（Vertex）</strong>。</li>
-<li>线性表中可以没有数据元素，称为空表。树中可以没有结点，叫做空树。在<strong>图结构中，不允许没有顶点</strong>。在定义中，若 V 是顶点的集合，则强调了顶点集合 V 有穷非空（关于点集是否为空有争议）。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">数据结构--二叉树</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-02 11:31:04" itemprop="dateCreated datePublished" datetime="2020-01-02T11:31:04+08:00">2020-01-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="二叉树的定义"><a href="#二叉树的定义" class="headerlink" title="二叉树的定义"></a>二叉树的定义</h3><p>二叉树（Binary Tree）是 n（n &gt;= 0）个结点的有限集合，该集合或者为空集（空二叉树），或者由一个根结点和两棵互不相交的、分别称为根结点的左二叉树和右二叉树组成。</p>
-<p><strong>注：</strong>二叉树不是树的特例，因为二叉树的孩子有左右之分，树是图的特例，二叉树可以为空，图（包括树）不能为空。（不同参考书籍的描述不一，有待考量）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/01/02/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E4%BA%8C%E5%8F%89%E6%A0%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2019/11/25/C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/25/C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">C++11 中的 Defaulted 和 Deleted 函数</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-25 19:53:29" itemprop="dateCreated datePublished" datetime="2019-11-25T19:53:29+08:00">2019-11-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p><a href="https://www.ibm.com/developerworks/cn/aix/library/1212_lufang_c11new/index.html" target="_blank" rel="noopener">C++11 标准新特性：Defaulted 和 Deleted 函数</a></p>
-</blockquote>
-<h3 id="1、Defaulted函数"><a href="#1、Defaulted函数" class="headerlink" title="1、Defaulted函数"></a>1、Defaulted函数</h3><p>C++ 的类有四类特殊成员函数，它们分别是：默认构造函数、析构函数、拷贝构造函数以及拷贝赋值运算符。这些类的特殊成员函数负责创建、初始化、销毁，或者拷贝类的对象。</p>
-<p>如果程序员没有显式地为一个类定义某个特殊成员函数，而又需要用到该特殊成员函数时，则编译器会隐式的为这个类生成一个默认的特殊成员函数。 如：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/25/C-11-%E4%B8%AD%E7%9A%84-Defaulted-%E5%92%8C-Deleted-%E5%87%BD%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2019/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/" class="post-title-link" itemprop="url">数据结构--树</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-25 17:47:39" itemprop="dateCreated datePublished" datetime="2019-11-25T17:47:39+08:00">2019-11-25</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h3><p>树（Tree）是 n（n &gt;= 0）个结点的有限集，n = 0 时称为空树。</p>
-<p>在任意一棵非空树中：</p>
-<ul>
-<li><p>有且仅有一个特定的根节点（Root），不可能存在多个根结点。</p>
-</li>
-<li><p>当 n &gt; 1 时，其余结点可以分为 m（m &gt; 0）个互不相交的有限集 T<sub>1</sub>、T<sub>2</sub>、······、T<sub>m</sub>，其中每一个集合本身又是一个树，并且称为根的子树（SubTree），如下图所示。</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/" class="post-title-link" itemprop="url">Linux 中编译安装 PTPd v2</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-27 09:44:47" itemprop="dateCreated datePublished" datetime="2019-02-27T09:44:47+08:00">2019-02-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Step 1：进入 ptpd 目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure>
-<p>Step 2：如果源文件是从 Github 仓库 clone 下来的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoreconf -vi</span><br></pre></td></tr></table></figure>
-<p>Step 3：ptpd 的特性和依赖配置（默认配置）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/02/27/Linux-%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85-PTPd-v2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/" class="post-title-link" itemprop="url">srsUE 不使用 SIM 卡连接 Internet</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-11-29 21:00:38" itemprop="dateCreated datePublished" datetime="2018-11-29T21:00:38+08:00">2018-11-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/srsLTE/" itemprop="url" rel="index">
-                    <span itemprop="name">srsLTE</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>1. 实验环境：</strong></p>
-<p>Celluar SDR：srsLTE</p>
-<p>SDR 平台：USRP B210</p>
-<p>PC 机操作系统：Ubuntu 14.04</p>
-<p><strong>2. 实验步骤</strong></p>
-<p>注意：以下操作步骤建立在srsLTE成功搭建的基础之上</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/11/29/srsUE-%E4%B8%8D%E4%BD%BF%E7%94%A8-SIM-%E5%8D%A1%E8%BF%9E%E6%8E%A5-Internet/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2018/08/08/srsLTE-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E4%B9%8B-PLMN-%E6%90%9C%E7%B4%A2%E3%80%81%E5%B0%8F%E5%8C%BA%E6%90%9C%E7%B4%A2%E6%B5%81%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="niliqiang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="niliqiang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/08/srsLTE-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E4%B9%8B-PLMN-%E6%90%9C%E7%B4%A2%E3%80%81%E5%B0%8F%E5%8C%BA%E6%90%9C%E7%B4%A2%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">srsLTE 源码学习之 PLMN 搜索、小区搜索流程</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-08-08 15:35:20" itemprop="dateCreated datePublished" datetime="2018-08-08T15:35:20+08:00">2018-08-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/srsLTE/" itemprop="url" rel="index">
-                    <span itemprop="name">srsLTE</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="实验环境："><a href="#实验环境：" class="headerlink" title="实验环境："></a>实验环境：</h3><p>Celluar SDR：srsLTE</p>
-<p>SDR 平台：USRP B210</p>
-<p>看源码软件：Source Insight 4.0</p>
-<p>由于应用方向和时间关系，暂不对物理层的源码展开过多研究。</p>
-<h3 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h3><p><strong>1. rrc::plmn_search()</strong><br>从 srsLTE 的源码来看，PLMN（ Public Land Mobile Network ）搜索过程包含了小区搜索的过程。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/08/srsLTE-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E4%B9%8B-PLMN-%E6%90%9C%E7%B4%A2%E3%80%81%E5%B0%8F%E5%8C%BA%E6%90%9C%E7%B4%A2%E6%B5%81%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
@@ -1081,6 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-贪心思想"><span class="nav-number">1.</span> <span class="nav-text">1. 贪心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-二分查找"><span class="nav-number">2.</span> <span class="nav-text">2. 二分查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-分治算法"><span class="nav-number">3.</span> <span class="nav-text">3. 分治算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-搜索"><span class="nav-number">4.</span> <span class="nav-text">4. 搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-广度优先搜索BFS"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 广度优先搜索BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-深度优先遍历DFS"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 深度优先遍历DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-回溯Backtracking"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 回溯Backtracking</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-动态规划"><span class="nav-number">5.</span> <span class="nav-text">5. 动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-动态规划题目特点："><span class="nav-number">5.1.</span> <span class="nav-text">5.1 动态规划题目特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-动态规四个组成部分"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 动态规四个组成部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-确定状态"><span class="nav-number">5.2.1.</span> <span class="nav-text">5.2.1 确定状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-转移方程"><span class="nav-number">5.2.2.</span> <span class="nav-text">5.2.2 转移方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-初始条件和边界情况"><span class="nav-number">5.2.3.</span> <span class="nav-text">5.2.3 初始条件和边界情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-4-计算顺序"><span class="nav-number">5.2.4.</span> <span class="nav-text">5.2.4 计算顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-数学相关"><span class="nav-number">6.</span> <span class="nav-text">6. 数学相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-素数（质数）"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 素数（质数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-最大公约数，最小公倍数"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 最大公约数，最小公倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-进制转换"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 进制转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-阶乘"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 阶乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-字符串加减法"><span class="nav-number">6.5.</span> <span class="nav-text">6.5 字符串加减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-相遇问题，多数投票问题"><span class="nav-number">6.6.</span> <span class="nav-text">6.6 相遇问题，多数投票问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-其他"><span class="nav-number">6.7.</span> <span class="nav-text">6.7 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-1-平方数"><span class="nav-number">6.7.1.</span> <span class="nav-text">6.7.1 平方数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-2-乘积数组"><span class="nav-number">6.7.2.</span> <span class="nav-text">6.7.2 乘积数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-3-二项式定理-快速幂"><span class="nav-number">6.7.3.</span> <span class="nav-text">6.7.3 二项式定理+快速幂</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
