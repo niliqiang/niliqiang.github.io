@@ -50,38 +50,38 @@
 <meta name="keywords" content="操作系统,进程与线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统--进程与线程">
-<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
 <meta property="og:description" content="进程一般来说Linux系统中的进程具备下列进程四要素： （1）有一段程序供其执行，就好像一场戏有个剧本一样。不一定是进程所专有，可以与其他进程共用。 （2）有起码的”私有财产“，这就是进程专用的系统堆栈空间。 （3）有“户口”，这就是在内核中的一个task_struct数据结构，也称为“进程控制块（PCB）”，有了这个数据结构，进程才能成为内核调度的一个基本单位接受内核的调度。 （4）有独立的存储">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575008831336.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575017458130.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575280520817.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575280572218.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575862300843.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575862438831.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575873446381.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575877715463.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575879557260.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575880161618.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575880577971.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575881434973.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575944646051.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575948620788.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575949378710.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575959702672.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575959877092.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575960667190.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576047030233.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576048518584.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576135516186.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576461932403.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1576467044640.png">
-<meta property="og:updated_time" content="2020-03-21T15:35:28.293Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575008831336.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575017458130.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575280520817.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575280572218.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575862300843.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575862438831.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575873446381.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575877715463.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575879557260.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575880161618.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575880577971.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575881434973.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575944646051.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575948620788.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575949378710.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575959702672.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575959877092.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575960667190.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1576047030233.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1576048518584.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1576135516186.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1576461932403.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1576467044640.png">
+<meta property="og:updated_time" content="2020-03-24T03:34:14.806Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;2020&#x2F;01&#x2F;11&#x2F;%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B&#x2F;1575008831336.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;9a460acd&#x2F;1575008831336.png">
 
-<link rel="canonical" href="https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+<link rel="canonical" href="https://niliqiang.github.io/posts/9a460acd/">
 
 
 <script id="page-configurations">
@@ -234,7 +234,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/posts/9a460acd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -290,7 +290,7 @@
 <a id="more"></a>
 <p>如果只具备前面三条，那就称为“线程”。如果完全没有用户空间，就称为“内核线程”；如果共享用户空间就称为“用户线程”。“内核线程”和“用户线程”统称”线程“。</p>
 <h3 id="进程模型"><a href="#进程模型" class="headerlink" title="进程模型"></a>进程模型</h3><p>在图2-1a中，一台多道（CPU在进程间快速的切换）程序计算机的内存中有四道程序。图2-1b中，这四道程序被抽象为4个各自拥有自己控制流程（即每个程序自己的逻辑程序计数器）的进程，并且每个程序都独立的运行。实际只有一个物理程序计数器，所以在每个程序运行时，它的逻辑程序计数器被装入实际的程序计数器中。当该程序执行结束（或暂定执行）时，物理程序计数器被保存在内存中该进程的逻辑程序计数器中。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575008831336.png" alt="1575008831336"></p>
+<p><img src="/posts/9a460acd/1575008831336.png" alt="1575008831336"></p>
 <h3 id="进程的创建"><a href="#进程的创建" class="headerlink" title="进程的创建"></a>进程的创建</h3><p>4种主要事件会导致进程的创建：</p>
 <p>（1）系统初始化。</p>
 <p>（2）正在运行的程序执行了创建进程的系统调用。</p>
@@ -316,52 +316,52 @@
 <li>就绪态（可运行，但因为其他进程正在运行而暂时停止）。</li>
 <li>阻塞态（除非某种外部事件发生，否则进程不能运行）。</li>
 </ul>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575017458130.png" alt="1575017458130"></p>
+<p><img src="/posts/9a460acd/1575017458130.png" alt="1575017458130"></p>
 <h3 id="进程的实现"><a href="#进程的实现" class="headerlink" title="进程的实现"></a>进程的实现</h3><p>为了实现进程模型，操作系统维护着一张表格（一个结构数组），即进程表。每个进程占用一个进程表项（进程控制块），该表项包含了进程状态的重要信息。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575280520817.png" alt="1575280520817"></p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575280572218.png" alt="1575280572218"></p>
-<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="线程的使用"><a href="#线程的使用" class="headerlink" title="线程的使用"></a>线程的使用</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575862300843.png" alt="1575862300843"></p>
-<h3 id="经典的线程模型"><a href="#经典的线程模型" class="headerlink" title="经典的线程模型"></a>经典的线程模型</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575862438831.png" alt="1575862438831"></p>
-<h3 id="POSIX线程"><a href="#POSIX线程" class="headerlink" title="POSIX线程"></a>POSIX线程</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575873446381.png" alt="1575873446381"></p>
+<p><img src="/posts/9a460acd/1575280520817.png" alt="1575280520817"></p>
+<p><img src="/posts/9a460acd/1575280572218.png" alt="1575280572218"></p>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="线程的使用"><a href="#线程的使用" class="headerlink" title="线程的使用"></a>线程的使用</h3><p><img src="/posts/9a460acd/1575862300843.png" alt="1575862300843"></p>
+<h3 id="经典的线程模型"><a href="#经典的线程模型" class="headerlink" title="经典的线程模型"></a>经典的线程模型</h3><p><img src="/posts/9a460acd/1575862438831.png" alt="1575862438831"></p>
+<h3 id="POSIX线程"><a href="#POSIX线程" class="headerlink" title="POSIX线程"></a>POSIX线程</h3><p><img src="/posts/9a460acd/1575873446381.png" alt="1575873446381"></p>
 <h3 id="在用户空间和在内核中实现线程"><a href="#在用户空间和在内核中实现线程" class="headerlink" title="在用户空间和在内核中实现线程"></a>在用户空间和在内核中实现线程</h3><p>参考链接：<a href="https://blog.csdn.net/gatieme/article/details/51892437" target="_blank" rel="noopener">线程的3种实现方式—内核级线程, 用户级线程和混合型线程</a></p>
 <h2 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h2><h3 id="竞争条件"><a href="#竞争条件" class="headerlink" title="竞争条件"></a>竞争条件</h3><p>两个或多个进程读写某些共享数据，最后的结果取决于进程运行的精准时序，称为竞争条件。</p>
 <h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><p>互斥：阻止多个进程同时读写共享的数据。</p>
 <p>临界区或临界区域：对共享内存进行访问的程序片段。</p>
 <p>避免竞争条件的解决方案，需要满足以下四个条件：</p>
 <p>（1）任何两个进程不能同时处于其临界区。<br>（2）不应该对CPU的速度和数量做任何假设。<br>（3）临界区外运行的进程不得阻塞其他进程。<br>（4）不得使进程无限期等待进入临界区。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575877715463.png" alt="1575877715463"></p>
+<p><img src="/posts/9a460acd/1575877715463.png" alt="1575877715463"></p>
 <h3 id="忙等待的互斥"><a href="#忙等待的互斥" class="headerlink" title="忙等待的互斥"></a>忙等待的互斥</h3><h4 id="屏蔽中断"><a href="#屏蔽中断" class="headerlink" title="屏蔽中断"></a>屏蔽中断</h4><p>进程在刚刚进入临界区后立即屏蔽所有中断，就要离开之前再打开中断。</p>
 <p>弊端：把屏蔽中断的权力交给用户是不明智的；屏蔽中断只对当前CPU有效。、</p>
 <h4 id="锁变量"><a href="#锁变量" class="headerlink" title="锁变量"></a>锁变量</h4><p>一个进程想进入临界区时，首先测试这把锁（读锁值），若锁值为0，将锁值设置为1并进入临界区；若这把锁的值已经是1了，则进程将等待直到其值变为0。</p>
 <p>弊端：一个进程读锁值时为0，恰好在它将其值设置为1之前，另一个进程被调度执行，并将锁变量置为1，当第一个进程再次执行时，它也将该锁值置为1，此时两个进程进入临界区。</p>
 <h4 id="严格轮换法"><a href="#严格轮换法" class="headerlink" title="严格轮换法"></a>严格轮换法</h4><p>忙等待：连续测试一个变量知道某个值出现为止。</p>
 <p>自旋锁：用于忙等待的锁。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575879557260.png" alt="1575879557260"></p>
+<p><img src="/posts/9a460acd/1575879557260.png" alt="1575879557260"></p>
 <p>弊端：违反了上述条件（3）。</p>
-<h4 id="Peterson解法"><a href="#Peterson解法" class="headerlink" title="Peterson解法"></a>Peterson解法</h4><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575880161618.png" alt="1575880161618"></p>
+<h4 id="Peterson解法"><a href="#Peterson解法" class="headerlink" title="Peterson解法"></a>Peterson解法</h4><p><img src="/posts/9a460acd/1575880161618.png" alt="1575880161618"></p>
 <p>弊端：需要忙等待。</p>
 <h4 id="TSL指令"><a href="#TSL指令" class="headerlink" title="TSL指令"></a>TSL指令</h4><p>需要硬件支持，执行TSL的CPU将锁住内存总线，以禁止其他CPU在本指令结束之前访问内存。</p>
 <p>弊端：需要忙等待。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575880577971.png" alt="1575880577971"></p>
+<p><img src="/posts/9a460acd/1575880577971.png" alt="1575880577971"></p>
 <h3 id="睡眠与唤醒"><a href="#睡眠与唤醒" class="headerlink" title="睡眠与唤醒"></a>睡眠与唤醒</h3><p>优先级反转问题：一台计算机有两个进程，H优先级较高，L优先级较低。调度规则规定，只要H处于就绪态它就可以运行。在某一时刻。L处于临界区中，此时H变道就绪态，准备运行。现在H开始忙等待，但由于当H就绪时L不会被调度，也就无法离开临界区，所以H将永远忙等待下去。</p>
 <p>生产者-消费者问题（有界缓冲区问题）</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575881434973.png" alt="1575881434973"></p>
+<p><img src="/posts/9a460acd/1575881434973.png" alt="1575881434973"></p>
 <p>由于未对count的访问加以限制，所以可能会出现竞争条件。当缓冲区为空，消费者刚刚读取count的值发现为0.此时调度程序决定暂停消费者并启动生产者。生产者想缓冲区加入一个数据项，count加一。现在count的值变为1了。它推断刚才由于count为0，所以消费者此时一定在睡眠，于是生产者调用wakeup来唤醒消费者。但是，消费者此时在逻辑上并未睡眠，所以wakeup信号丢失。当消费者下次运行时，它将测试先前读到的count值，发现它为0，于是睡眠。当生产者填满整个缓冲区后，也会睡眠。这样两个进程都会永远睡眠下去。</p>
 <h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><p>down操作：检查信号量是否大于0，若该值大于0，则将其减1并继续；若该值为0，则进程将睡眠，而且此时down操作并未结束。</p>
 <p>up操作：信号量的值增1和唤醒一个进程。</p>
 <p>down操作和up操作均作为一个单一的，不可分割的原子操作完成。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575944646051.png" alt="1575944646051"></p>
+<p><img src="/posts/9a460acd/1575944646051.png" alt="1575944646051"></p>
 <h3 id="互斥量"><a href="#互斥量" class="headerlink" title="互斥量"></a>互斥量</h3><p>当一个线程或进程需要访问临界区时，它调用mutex_lock。如果该互斥量当前是解锁的（临界区可用），则调用成功，调用线程可以自由进入临界区。若该互斥量已经加锁，调用线程被阻塞，直到临界区中的线程完成并调用mutex_unlock。如果多个线程被阻塞在该互斥量上，将随机选择一个线程并允许它获得锁。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575948620788.png" alt="1575948620788"></p>
+<p><img src="/posts/9a460acd/1575948620788.png" alt="1575948620788"></p>
 <p>只有一个缓冲区的生产者-消费者模型：</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575949378710.png" alt="1575949378710"></p>
+<p><img src="/posts/9a460acd/1575949378710.png" alt="1575949378710"></p>
 <h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>管程是一个编程语言概念，一个管程是一个由过程、变量及数据结构等组成的一个集合，它们组成一个特殊的模块或者软件包。</p>
 <p>管程一个很重要的特性：任一时刻管程中只能有一个活跃的进程，这一特性使管程能有效的完成互斥（引入条件变量以及wait和signal两个操作）。</p>
-<h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575959702672.png" alt="1575959702672"></p>
-<h3 id="屏障"><a href="#屏障" class="headerlink" title="屏障"></a>屏障</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575959877092.png" alt="1575959877092"></p>
-<h3 id="避免锁：读-复制-更新"><a href="#避免锁：读-复制-更新" class="headerlink" title="避免锁：读-复制-更新"></a>避免锁：读-复制-更新</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1575960667190.png" alt="1575960667190"></p>
+<h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p><img src="/posts/9a460acd/1575959702672.png" alt="1575959702672"></p>
+<h3 id="屏障"><a href="#屏障" class="headerlink" title="屏障"></a>屏障</h3><p><img src="/posts/9a460acd/1575959877092.png" alt="1575959877092"></p>
+<h3 id="避免锁：读-复制-更新"><a href="#避免锁：读-复制-更新" class="headerlink" title="避免锁：读-复制-更新"></a>避免锁：读-复制-更新</h3><p><img src="/posts/9a460acd/1575960667190.png" alt="1575960667190"></p>
 <h2 id="调度"><a href="#调度" class="headerlink" title="调度"></a>调度</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>1. 进程行为</strong></p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1576047030233.png" alt="1576047030233"></p>
+<p><img src="/posts/9a460acd/1576047030233.png" alt="1576047030233"></p>
 <ul>
 <li>计算密集型：较长时间的CPU集中使用和较小频度的I/O等待</li>
 <li>I/O密集型：较短时间的CPU集中使用和较高频度的I/O等待</li>
@@ -380,15 +380,15 @@
 <li>实时</li>
 </ul>
 <p><strong>4. 调度算法的目标</strong></p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1576048518584.png" alt="1576048518584"></p>
+<p><img src="/posts/9a460acd/1576048518584.png" alt="1576048518584"></p>
 <h3 id="批处理系统中的调度"><a href="#批处理系统中的调度" class="headerlink" title="批处理系统中的调度"></a>批处理系统中的调度</h3><p>（1）先来先服务<br>易于理解并且便于在程序中运用。<br>（2）最短作业优先<br>适用于运行时间可以预知的非抢占式批处理调度算法。<br>（3）最短剩余时间优先<br>最短作业优点的抢占式版本。</p>
 <h3 id="交互式系统中的调度"><a href="#交互式系统中的调度" class="headerlink" title="交互式系统中的调度"></a>交互式系统中的调度</h3><p>（1）轮转调度</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1576135516186.png" alt="1576135516186"></p>
+<p><img src="/posts/9a460acd/1576135516186.png" alt="1576135516186"></p>
 <p>进程切换（上下文切换）：需要1ms，包括切换内存映像、清除和重新调入高速缓存等。</p>
 <p>时间片设置得太长（长于平均的CPU突发时间）可能引起对短的交互请求的响应时间变长，设置得太短又会导致过多的进程切换，降低CPU效率。将时间片设为20~50ms通常是一个比较合理的折中。</p>
 <p>（2）优先级调度</p>
 <p>为了防止高优先级进程无休止地运行下去，调度进程可能在每个时钟滴答（每个时钟中断）降低当前进程的优先级。另一个可能的做法是，给每个进程赋予一个允许运行的最大时间片，当用完这个时间片时，次高优先级的进程便会获得运行机会。</p>
-<p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1576461932403.png" alt="1576461932403">、</p>
+<p><img src="/posts/9a460acd/1576461932403.png" alt="1576461932403">、</p>
 <p>（3）多级队列</p>
 <p>最高优先级类的进程运行一个时间片，次高优先级进程运行两个时间片，再次一级运行4个时间片，以此类推。当一个进程用完分配的时间片后，会被移到下一优先级类，即随着进程优先级不断降低，它的运行频度逐渐放慢。</p>
 <p>（4）最短进程优先</p>
@@ -403,7 +403,7 @@
 <h3 id="实时系统中的调度"><a href="#实时系统中的调度" class="headerlink" title="实时系统中的调度"></a>实时系统中的调度</h3><p>实时系统通常可以分为硬实时和软实时，前者的含义是必须满足绝对的截止时间，后者的含义是虽然不需要偶尔错失截止时间，但是可以容忍。</p>
 <p>实时系统中的事件可以按照响应方式进一步分类为周期性事件或非周期性事件。一个周期事件可以被调度的条件是处理该事件的CPU时间小于该事件的周期。</p>
 <h3 id="策略和机制"><a href="#策略和机制" class="headerlink" title="策略和机制"></a>策略和机制</h3><p>将调度机制与调度策略分离，使得调度算法可以从用户进程接收有关的调度决策信息（调度算法参数化）。</p>
-<h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><p><img src="/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1576467044640.png" alt="1576467044640"></p>
+<h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><p><img src="/posts/9a460acd/1576467044640.png" alt="1576467044640"></p>
 <p>用户级线程和内核级线程之间的差别在于性能，用户级线程的线程切换需要少量的机器指令，而内核级线程需要完整的上下文切换，修改内存映像，使高速缓存失效，这导致了若干数量级的延迟。另一方面，使用内核级线程时，一旦线程阻塞在I/O上就不需要像在用户级线程中那样将整个进程挂起。</p>
 
     </div>
@@ -420,7 +420,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/" title="操作系统--进程与线程">https://niliqiang.github.io/2020/01/11/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</a>
+    <a href="https://niliqiang.github.io/posts/9a460acd/" title="操作系统--进程与线程">https://niliqiang.github.io/posts/9a460acd/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -441,11 +441,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/" rel="prev" title="数据结构--图">
+    <a href="/posts/ead90048/" rel="prev" title="数据结构--图">
       <i class="fa fa-chevron-left"></i> 数据结构--图
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/15/%E7%AE%97%E6%B3%95-%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E4%BE%8B%E9%A2%98%E6%80%BB%E7%BB%93/" rel="next" title="算法--常见算法例题总结">
+    <a href="/posts/4a782cec/" rel="next" title="算法--常见算法例题总结">
       算法--常见算法例题总结 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -524,6 +524,9 @@
       <span class="links-of-author-item">
         <a href="/mailto:ni_liqiang@126.com" title="E-Mail → mailto:ni_liqiang@126.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
