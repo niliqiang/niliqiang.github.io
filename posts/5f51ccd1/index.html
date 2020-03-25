@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
 <meta property="og:description" content="链表链表的定义及优缺点： 来自维基百科  定义链表（Linked list）是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间。 链表作为一种基础的数据结构可以用来生成其它类型的数据结构。链表通常由一连串节点组成，每个节点包">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-24T03:34:14.812Z">
+<meta property="og:updated_time" content="2020-03-24T06:50:45.970Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://niliqiang.github.io/posts/5f51ccd1/">
@@ -276,42 +276,42 @@
 <table>
 <thead>
 <tr>
-<th>题目</th>
-<th>考点</th>
+<th style="text-align:left">题目</th>
+<th style="text-align:left">考点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/" target="_blank" rel="noopener">面试题22. 链表中倒数第k个节点</a></td>
-<td>定义快慢节点指针，快的先走k步，然后两指针同步前进，待快指针到达尾后节点时，慢指针所指即为所得。</td>
+<td style="text-align:left"><a href="https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/" target="_blank" rel="noopener">面试题22. 链表中倒数第k个节点</a></td>
+<td style="text-align:left">定义快慢节点指针，快的先走k步，然后两指针同步前进，待快指针到达尾后节点时，慢指针所指即为所得。</td>
 </tr>
 <tr>
-<td><a href="https://www.nowcoder.com/practice/6ab1d9a29e88450685099d45c9e31e46" target="_blank" rel="noopener">两个链表的第一个公共结点</a></td>
-<td>长度的游戏：list1与list2的长度差很关键。先让长的走△步，然后一起遍历，第一个相同的就是要找的；时间复杂度 O(n+m)</td>
+<td style="text-align:left"><a href="https://www.nowcoder.com/practice/6ab1d9a29e88450685099d45c9e31e46" target="_blank" rel="noopener">两个链表的第一个公共结点</a></td>
+<td style="text-align:left">长度的游戏：list1与list2的长度差很关键。先让长的走△步，然后一起遍历，第一个相同的就是要找的；时间复杂度 O(n+m)</td>
 </tr>
 <tr>
-<td><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">链表中环的入口结点</a></td>
-<td>快慢指针，两次相遇（第一次相遇之后，一个节点回到头节点，再次相遇点即为入口点）</td>
+<td style="text-align:left"><a href="https://leetcode-cn.com/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">链表中环的入口结点</a></td>
+<td style="text-align:left">快慢指针，两次相遇（第一次相遇之后，一个节点回到头节点，再次相遇点即为入口点）</td>
 </tr>
 <tr>
-<td><a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener">206. 反转链表</a></td>
-<td>可以用一个容器来装链表的每个节点，再反向构建链表，但这不是最佳思路；尝试多加链表的节点指针来解决。</td>
+<td style="text-align:left"><a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener">206. 反转链表</a></td>
+<td style="text-align:left">可以用一个容器来装链表的每个节点，再反向构建链表，但这不是最佳思路；尝试多加链表的节点指针来解决。</td>
 </tr>
 <tr>
-<td><a href="https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337" target="_blank" rel="noopener">合并两个排序的链表</a></td>
-<td>非递归方法：使用三个指针，根据两个链表的当前节点大小依次追加；递归方法：根据当前节点大小递归追加。</td>
+<td style="text-align:left"><a href="https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337" target="_blank" rel="noopener">合并两个排序的链表</a></td>
+<td style="text-align:left">非递归方法：使用三个指针，根据两个链表的当前节点大小依次追加；<br>递归方法：根据当前节点大小递归追加。</td>
 </tr>
 <tr>
-<td><a href="https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba" target="_blank" rel="noopener">复杂链表的赋值</a></td>
-<td>先复制每一个结点，插入到原节点后边，拼成一个长链表，再拆分</td>
+<td style="text-align:left"><a href="https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba" target="_blank" rel="noopener">复杂链表的赋值</a></td>
+<td style="text-align:left">先复制每一个结点，插入到原节点后边，拼成一个长链表，再拆分</td>
 </tr>
 <tr>
-<td><a href="https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef" target="_blank" rel="noopener">删除链表中重复的节点</a></td>
-<td>1. 首先添加一个头节点，以方便碰到第一个，第二个节点就相同的情况；2. 设置 pre ，last 指针， pre指针指向当前确定不重复的那个节点，而last指针相当于工作指针，一直往后面搜索。</td>
+<td style="text-align:left"><a href="https://www.nowcoder.com/practice/fc533c45b73a41b0b44ccba763f866ef" target="_blank" rel="noopener">删除链表中重复的节点</a></td>
+<td style="text-align:left">1. 首先添加一个头节点，以方便碰到第一个，第二个节点就相同的情况；<br>2. 设置 pre ，last 指针， pre指针指向当前确定不重复的那个节点，而last指针相当于工作指针，一直往后面搜索。</td>
 </tr>
 <tr>
-<td><a href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/" target="_blank" rel="noopener">面试题06. 从尾到头打印链表</a></td>
-<td>辅助栈，遍历入栈，出栈打印</td>
+<td style="text-align:left"><a href="https://leetcode-cn.com/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/" target="_blank" rel="noopener">面试题06. 从尾到头打印链表</a></td>
+<td style="text-align:left">辅助栈，遍历入栈，出栈打印</td>
 </tr>
 </tbody>
 </table>
@@ -338,7 +338,7 @@
     <a href="https://niliqiang.github.io/posts/5f51ccd1/" title="数据结构--链表总结">https://niliqiang.github.io/posts/5f51ccd1/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -359,7 +359,10 @@
     <a href="/posts/4a782cec/" rel="prev" title="算法--常见算法例题总结">
       <i class="fa fa-chevron-left"></i> 算法--常见算法例题总结
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/f3c6a1db/" rel="next" title="360 笔试知识点记录 3.24">
+      360 笔试知识点记录 3.24 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -411,20 +414,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -438,7 +441,7 @@
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
 
 
