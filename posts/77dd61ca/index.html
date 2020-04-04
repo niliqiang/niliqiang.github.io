@@ -46,14 +46,20 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="niliqiang&#39;s Blog">
-<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;tags&#x2F;360&#x2F;index.html">
+  <meta name="description" content="安装zsh套件12sudo apt-get updatesudo apt install zsh 把zsh设置成默认，也就是替换bash： 1chsh –s $(which zsh) 安装 oh my zsh 框架注意，前提是git的环境已经配置完毕 1curl -L https:&#x2F;&#x2F;raw.github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;instal">
+<meta name="keywords" content="Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu Shell环境更换--oh my zsh">
+<meta property="og:url" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;77dd61ca&#x2F;index.html">
 <meta property="og:site_name" content="niliqiang&#39;s Blog">
+<meta property="og:description" content="安装zsh套件12sudo apt-get updatesudo apt install zsh 把zsh设置成默认，也就是替换bash： 1chsh –s $(which zsh) 安装 oh my zsh 框架注意，前提是git的环境已经配置完毕 1curl -L https:&#x2F;&#x2F;raw.github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;instal">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;77dd61ca&#x2F;image-20200404165032020.png">
+<meta property="og:updated_time" content="2020-04-04T09:23:21.269Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;77dd61ca&#x2F;image-20200404165032020.png">
 
-<link rel="canonical" href="https://niliqiang.github.io/tags/360/">
+<link rel="canonical" href="https://niliqiang.github.io/posts/77dd61ca/">
 
 
 <script id="page-configurations">
@@ -61,13 +67,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>标签: 360 | niliqiang's Blog</title>
+  <title>Ubuntu Shell环境更换--oh my zsh | niliqiang's Blog</title>
   
 
 
@@ -201,50 +207,122 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">360
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://niliqiang.github.io/posts/77dd61ca/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="niliqiang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="niliqiang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu Shell环境更换--oh my zsh
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-04 16:38:04" itemprop="dateCreated datePublished" datetime="2020-04-04T16:38:04+08:00">2020-04-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index">
+                    <span itemprop="name">Ubuntu</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <h2 id="安装zsh套件"><a href="#安装zsh套件" class="headerlink" title="安装zsh套件"></a>安装zsh套件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
+<p>把zsh设置成默认，也就是替换bash：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh –s $(<span class="built_in">which</span> zsh)</span><br></pre></td></tr></table></figure>
+<h2 id="安装-oh-my-zsh-框架"><a href="#安装-oh-my-zsh-框架" class="headerlink" title="安装 oh my zsh 框架"></a>安装 oh my zsh 框架</h2><p>注意，前提是git的环境已经配置完毕</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>这里推荐实验室大佬陈师兄的配置（k-zsh）或者自己在<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes" target="_blank" rel="noopener">主题列表</a>中选择主题并修改<code>~/.zshrc</code>中的<code>ZSH_THEME</code>字段：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/kchen0x/\</span><br><span class="line">k-zsh/master/zshrc &gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># k-zsh 中配置了部分插件需要单独安装一下才能生效：</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git \</span><br><span class="line"><span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>配置完成后执行：<code>source ~/.zshrc</code>更新配置即可生效，终端界面效果：</p>
+<p><img src="/posts/77dd61ca/image-20200404165032020.png" alt="image-20200404165032020"></p>
+<p><strong>参考链接：</strong></p>
+<p>陈师兄的《实验室服务器使用手册.html》</p>
+<p><a href="https://github.com/kchen0x/k-zsh" target="_blank" rel="noopener">陈师兄的GitHub仓库 k-zsh</a></p>
+<p><a href="http://www.shanetalk.com/2017/06/14/How-to-install-Oh-my-zsh-on-Ubuntu/" target="_blank" rel="noopener">Ubuntu 下安裝 Oh-my-zsh</a></p>
+<p><a href="https://www.jianshu.com/p/d194d29e488c" target="_blank" rel="noopener">oh-my-zsh,让你的终端从未这么爽过</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-25T17:30:50+08:00"
-              content="2020-03-25">
-          03-25
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>niliqiang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://niliqiang.github.io/posts/77dd61ca/" title="Ubuntu Shell环境更换--oh my zsh">https://niliqiang.github.io/posts/77dd61ca/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/posts/f3c6a1db/" itemprop="url">
-            <span itemprop="name">360 笔试知识点记录 3.24</span>
-          </a>
-      </h2>
 
-    </header>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/bce7e617/" rel="prev" title="数据结构--哈希表">
+      <i class="fa fa-chevron-left"></i> 数据结构--哈希表
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -273,6 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装zsh套件"><span class="nav-number">1.</span> <span class="nav-text">安装zsh套件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-oh-my-zsh-框架"><span class="nav-number">2.</span> <span class="nav-text">安装 oh my zsh 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题选择"><span class="nav-number">3.</span> <span class="nav-text">主题选择</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
