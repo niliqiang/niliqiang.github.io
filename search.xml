@@ -865,7 +865,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux 中编译安装 PTPd v2</title>
+    <title>Ubuntu 中编译安装 PTPd v2</title>
     <url>/posts/d100dc04/</url>
     <content><![CDATA[<p>Step 1：进入 ptpd 目录</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure>
@@ -880,10 +880,10 @@
 <p><a href="https://raw.githubusercontent.com/ptpd/ptpd/master/INSTALL" target="_blank" rel="noopener">PTP Daemon Version 2 Build and Installation Instructions</a></p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>Ubuntu</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>Ubuntu</tag>
         <tag>PTP</tag>
       </tags>
   </entry>

@@ -294,11 +294,11 @@
   </entry>
   
   <entry>
-    <title>Linux 中编译安装 PTPd v2</title>
+    <title>Ubuntu 中编译安装 PTPd v2</title>
     <link href="https://niliqiang.github.io/posts/d100dc04/"/>
     <id>https://niliqiang.github.io/posts/d100dc04/</id>
     <published>2019-02-27T01:44:47.000Z</published>
-    <updated>2020-03-24T03:34:14.800Z</updated>
+    <updated>2020-04-04T09:26:48.140Z</updated>
     
     <content type="html"><![CDATA[<p>Step 1：进入 ptpd 目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure><p>Step 2：如果源文件是从 Github 仓库 clone 下来的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoreconf -vi</span><br></pre></td></tr></table></figure><p>Step 3：ptpd 的特性和依赖配置（默认配置）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure><a id="more"></a><p>Step 4：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure><p><strong>参考链接：</strong></p><p><a href="https://raw.githubusercontent.com/ptpd/ptpd/master/INSTALL" target="_blank" rel="noopener">PTP Daemon Version 2 Build and Installation Instructions</a></p>]]></content>
     
@@ -314,10 +314,10 @@
     </summary>
     
     
-      <category term="Linux" scheme="https://niliqiang.github.io/categories/Linux/"/>
+      <category term="Ubuntu" scheme="https://niliqiang.github.io/categories/Ubuntu/"/>
     
     
-      <category term="Linux" scheme="https://niliqiang.github.io/tags/Linux/"/>
+      <category term="Ubuntu" scheme="https://niliqiang.github.io/tags/Ubuntu/"/>
     
       <category term="PTP" scheme="https://niliqiang.github.io/tags/PTP/"/>
     
