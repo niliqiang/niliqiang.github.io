@@ -55,7 +55,7 @@
 <meta property="og:description" content="对于笔试过程中的不太清晰的部分知识点做一下整理  C++继承：私有，保护，公有private, protected, public的访问范围：private: 只能由该类中的函数、其友元函数访问，不能被任何其他访问，该类的对象也不能访问protected: 可以被该类中的函数、子类的函数、以及其友元函数访问,但不能被该类的对象访问public: 可以被该类中的函数、子类的函数、其友元函数访问,也">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;f3c6a1db&#x2F;image-20200325173447064.png">
-<meta property="og:updated_time" content="2020-03-25T09:48:17.919Z">
+<meta property="og:updated_time" content="2020-04-22T06:24:55.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;niliqiang.github.io&#x2F;posts&#x2F;f3c6a1db&#x2F;image-20200325173447064.png">
 
@@ -265,7 +265,7 @@
 </blockquote>
 <h2 id="C-继承：私有，保护，公有"><a href="#C-继承：私有，保护，公有" class="headerlink" title="C++继承：私有，保护，公有"></a>C++继承：私有，保护，公有</h2><h3 id="private-protected-public的访问范围："><a href="#private-protected-public的访问范围：" class="headerlink" title="private, protected, public的访问范围："></a>private, protected, public的访问范围：</h3><p><strong>private:</strong> 只能由该类中的函数、其友元函数访问，不能被任何其他访问，该类的对象也不能访问<br><strong>protected:</strong> 可以被该类中的函数、子类的函数、以及其友元函数访问,但不能被该类的对象访问<br><strong>public:</strong> 可以被该类中的函数、子类的函数、其友元函数访问,也可以由该类的对象访问<br>注：友元函数包括两种：设为友元的全局函数，设为友元类中的成员函数</p>
 <a id="more"></a>
-<h3 id="类的继承后方法属性变化："><a href="#类的继承后方法属性变化：" class="headerlink" title="类的继承后方法属性变化："></a>类的继承后方法属性变化：</h3><p><strong>使用private继承</strong>，基类的公有成员和保护成员都作为派生类的私有成员，并且不能被这个派生类的子类所访问。<br><strong>使用protected继承</strong>，基类的所有公有成员和保护成员都成为派生类的保护成员；<br><strong>使用public继承</strong>，基类的公有成员和保护成员保持原有的状态，而基类的私有成员仍然是私有的，不能被这个派生类的子类所访问。<br>注：</p>
+<h3 id="类的继承后方法属性变化："><a href="#类的继承后方法属性变化：" class="headerlink" title="类的继承后方法属性变化："></a>类的继承后方法属性变化：</h3><p><strong>使用private继承</strong>，基类的公有成员和保护成员都作为派生类的私有成员，并且不能被这个派生类的子类所访问。<br><strong>使用protected继承</strong>，基类的所有公有成员和保护成员都成为派生类的保护成员。<br><strong>使用public继承</strong>，基类的公有成员和保护成员保持原有的状态。<br>注：</p>
 <ul>
 <li>无论何种继承方式，基类中的private成员对派生类都是不可见的</li>
 <li>继承属性变化影响的是派生类的对象或者派生类的派生类</li>
