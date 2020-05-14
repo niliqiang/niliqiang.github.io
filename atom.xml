@@ -44,7 +44,7 @@
     <link href="https://niliqiang.github.io/posts/77dd61ca/"/>
     <id>https://niliqiang.github.io/posts/77dd61ca/</id>
     <published>2020-04-04T08:38:04.000Z</published>
-    <updated>2020-04-04T09:45:16.301Z</updated>
+    <updated>2020-05-14T03:07:26.748Z</updated>
     
     <content type="html"><![CDATA[<h2 id="安装zsh套件"><a href="#安装zsh套件" class="headerlink" title="安装zsh套件"></a>安装zsh套件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure><p>把zsh设置成默认，也就是替换bash：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh –s $(<span class="built_in">which</span> zsh)</span><br></pre></td></tr></table></figure><h2 id="安装-oh-my-zsh-框架"><a href="#安装-oh-my-zsh-框架" class="headerlink" title="安装 oh my zsh 框架"></a>安装 oh my zsh 框架</h2><p>注意，前提是git的环境已经配置完毕</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>这里推荐实验室大佬陈师兄的配置（k-zsh）或者自己在<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/themes" target="_blank" rel="noopener">主题列表</a>中选择主题并修改<code>~/.zshrc</code>中的<code>ZSH_THEME</code>字段：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/kchen0x/\</span><br><span class="line">k-zsh/master/zshrc &gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># k-zsh 中配置了部分插件需要单独安装一下才能生效：</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git \</span><br><span class="line"><span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure><p>配置完成后执行：<code>source ~/.zshrc</code>更新配置即可生效，终端界面效果：</p><p><img src="/posts/77dd61ca/image-20200404165032020.png" alt="image-20200404165032020"></p><p><strong>参考链接：</strong></p><p>陈师兄的《实验室服务器使用手册.html》</p><p><a href="https://github.com/kchen0x/k-zsh" target="_blank" rel="noopener">陈师兄的GitHub仓库 k-zsh</a></p><p><a href="http://www.shanetalk.com/2017/06/14/How-to-install-Oh-my-zsh-on-Ubuntu/" target="_blank" rel="noopener">Ubuntu 下安裝 Oh-my-zsh</a></p><p><a href="https://www.jianshu.com/p/d194d29e488c" target="_blank" rel="noopener">oh-my-zsh,让你的终端从未这么爽过</a></p>]]></content>
     
@@ -59,7 +59,7 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://niliqiang.github.io/categories/Ubuntu/"/>
+      <category term="Linux" scheme="https://niliqiang.github.io/categories/Linux/"/>
     
     
       <category term="Ubuntu" scheme="https://niliqiang.github.io/tags/Ubuntu/"/>
@@ -321,7 +321,7 @@
     <link href="https://niliqiang.github.io/posts/d100dc04/"/>
     <id>https://niliqiang.github.io/posts/d100dc04/</id>
     <published>2019-02-27T01:44:47.000Z</published>
-    <updated>2020-04-04T09:26:48.140Z</updated>
+    <updated>2020-05-14T03:07:44.562Z</updated>
     
     <content type="html"><![CDATA[<p>Step 1：进入 ptpd 目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ptpd</span><br></pre></td></tr></table></figure><p>Step 2：如果源文件是从 Github 仓库 clone 下来的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autoreconf -vi</span><br></pre></td></tr></table></figure><p>Step 3：ptpd 的特性和依赖配置（默认配置）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure><a id="more"></a><p>Step 4：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure><p><strong>参考链接：</strong></p><p><a href="https://raw.githubusercontent.com/ptpd/ptpd/master/INSTALL" target="_blank" rel="noopener">PTP Daemon Version 2 Build and Installation Instructions</a></p>]]></content>
     
@@ -337,7 +337,7 @@
     </summary>
     
     
-      <category term="Ubuntu" scheme="https://niliqiang.github.io/categories/Ubuntu/"/>
+      <category term="Linux" scheme="https://niliqiang.github.io/categories/Linux/"/>
     
     
       <category term="Ubuntu" scheme="https://niliqiang.github.io/tags/Ubuntu/"/>
